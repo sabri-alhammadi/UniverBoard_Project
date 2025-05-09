@@ -1,38 +1,41 @@
-<!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>لوحة تحكم الإدارة العليا</title>
-  <!-- إضافة روابط إلى ملفات CSS مثل Tailwind أو أي مكتبات أخرى -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-900 dark:bg-[#222222] dark:text-white">
-  
-  <!-- لوحة تحكم الإدارة العليا (Super Admin) -->
-  <section id="superadmin-dashboard" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-6">
-    <h2 class="text-2xl font-semibold mb-3">لوحة تحكم الإدارة العليا</h2>
-    <p class="text-lg">مرحبًا مدير النظام! لديك إشراف على 6 كليات و15 برنامج أكاديمي نشط.</p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-      <div class="bg-white dark:bg-[#2a2a2a] p-4 rounded-md text-center">
-        <h3 class="text-xl font-semibold">عدد الكليات</h3>
-        <p class="text-3xl font-bold text-purple-600">6</p>
+<body class="bg-gray-100 text-gray-900 dark:bg-[#222222] dark:text-white min-h-screen p-4">
+
+  <section id="superadmin-dashboard" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-6 max-w-5xl mx-auto">
+    <h2 class="text-3xl font-semibold mb-5 text-center">لوحة تحكم الإدارة العليا</h2>
+    <p class="text-lg text-center max-w-xl mx-auto">مرحبًا مدير النظام! لديك إشراف على 6 كليات و15 برنامج أكاديمي نشط.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6">
+      <div class="bg-white dark:bg-[#2a2a2a] p-6 rounded-md shadow flex flex-col items-center justify-center">
+        <h3 class="text-xl font-semibold mb-2">عدد الكليات</h3>
+        <p class="text-4xl font-bold text-purple-600">6</p>
       </div>
-      <div class="bg-white dark:bg-[#2a2a2a] p-4 rounded-md text-center">
-        <h3 class="text-xl font-semibold">عدد المستخدمين</h3>
-        <p class="text-3xl font-bold text-blue-600">9,820</p>
+      <div class="bg-white dark:bg-[#2a2a2a] p-6 rounded-md shadow flex flex-col items-center justify-center">
+        <h3 class="text-xl font-semibold mb-2">عدد المستخدمين</h3>
+        <p class="text-4xl font-bold text-blue-600">9,820</p>
       </div>
-      <div class="bg-white dark:bg-[#2a2a2a] p-4 rounded-md text-center">
-        <h3 class="text-xl font-semibold">البرامج الأكاديمية</h3>
-        <p class="text-3xl font-bold text-orange-500">15</p>
+      <div class="bg-white dark:bg-[#2a2a2a] p-6 rounded-md shadow flex flex-col items-center justify-center">
+        <h3 class="text-xl font-semibold mb-2">البرامج الأكاديمية</h3>
+        <p class="text-4xl font-bold text-orange-500">15</p>
       </div>
     </div>
   </section>
 
-  <!-- إدارة المستخدمين -->
-  <section id="user-management" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md mt-6">
-    <h2 class="text-2xl font-semibold mb-3">إدارة المستخدمين</h2>
-    <table class="min-w-full border border-gray-300 dark:border-gray-600 text-center">
+  <section id="user-management" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-6 max-w-5xl mx-auto overflow-x-auto">
+    <h2 class="text-3xl font-semibold mb-5 text-center">إدارة المستخدمين</h2>
+    <table class="min-w-full border border-gray-300 dark:border-gray-600 text-center text-base">
       <thead class="bg-[#669bbc] text-white">
         <tr>
           <th class="py-3 px-4">الاسم</th>
@@ -43,36 +46,63 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="border-t border-gray-300 dark:border-gray-600">
+        <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
           <td class="py-2 px-4">عبدالله صالح</td>
           <td class="py-2 px-4">أستاذ</td>
           <td class="py-2 px-4">الهندسة وتقنية المعلومات</td>
-          <td class="py-2 px-4 text-green-600">نشط</td>
-          <td class="py-2 px-4"><a href="#" class="text-blue-500 underline">تحرير</a></td>
+          <td class="py-2 px-4 text-green-600 font-semibold">نشط</td>
+          <td class="py-2 px-4">
+            <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1">
+              <i class="fas fa-edit"></i> تحرير
+            </a>
+          </td>
+        </tr>
+        <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+          <td class="py-2 px-4">سارة العلي</td>
+          <td class="py-2 px-4">مدير قسم</td>
+          <td class="py-2 px-4">العلوم الطبية</td>
+          <td class="py-2 px-4 text-yellow-500 font-semibold">في إجازة</td>
+          <td class="py-2 px-4">
+            <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1">
+              <i class="fas fa-edit"></i> تحرير
+            </a>
+          </td>
+        </tr>
+        <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+          <td class="py-2 px-4">محمد الحربي</td>
+          <td class="py-2 px-4">موظف دعم</td>
+          <td class="py-2 px-4">الشؤون الإدارية</td>
+          <td class="py-2 px-4 text-red-600 font-semibold">غير نشط</td>
+          <td class="py-2 px-4">
+            <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1">
+              <i class="fas fa-edit"></i> تحرير
+            </a>
+          </td>
         </tr>
       </tbody>
     </table>
   </section>
 
-  <!-- تقارير الأداء والتحليلات -->
-  <section id="system-reports" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md mt-6">
-    <h2 class="text-2xl font-semibold mb-3">تقارير الأداء والتحليلات</h2>
-    <ul class="list-disc list-inside text-lg space-y-2">
+  <section id="system-reports" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-6 max-w-5xl mx-auto">
+    <h2 class="text-3xl font-semibold mb-5 text-center">تقارير الأداء والتحليلات</h2>
+    <ul class="list-disc list-inside text-lg space-y-3 max-w-xl mx-auto text-gray-800 dark:text-gray-300">
       <li>عدد العمليات الناجحة خلال الأسبوع: <strong>14,320</strong></li>
       <li>عدد محاولات الدخول الفاشلة: <strong>47</strong></li>
       <li>متوسط وقت استجابة النظام: <strong>1.2 ثانية</strong></li>
+      <li>عدد المستخدمين النشطين: <strong>9,500</strong></li>
+      <li>معدل الأخطاء: <strong>0.3%</strong></li>
     </ul>
   </section>
 
-  <!-- إعدادات النظام العامة -->
-  <section id="global-settings" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md mt-6">
-    <h2 class="text-2xl font-semibold mb-3">إعدادات النظام العامة</h2>
-    <p class="text-lg mb-2">إعدادات تشمل اللغة الافتراضية، صلاحيات الوصول، وحدود السعة.</p>
-    <ul class="list-disc list-inside text-lg">
+  <section id="global-settings" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-6 max-w-5xl mx-auto">
+    <h2 class="text-3xl font-semibold mb-5 text-center">إعدادات النظام العامة</h2>
+    <p class="text-lg mb-4 text-center max-w-xl mx-auto">إعدادات تشمل اللغة الافتراضية، صلاحيات الوصول، وحدود السعة.</p>
+    <ul class="list-disc list-inside text-lg max-w-xl mx-auto text-gray-800 dark:text-gray-300 space-y-2">
       <li>اللغة الافتراضية: العربية</li>
       <li>الوضع الافتراضي: الوضع الفاتح</li>
       <li>حد أقصى لحجم الملفات: 50MB</li>
       <li>صلاحيات المسؤولين: تعديل، حذف، إنشاء</li>
+      <li>تحديثات النظام التلقائية: مفعلة</li>
     </ul>
   </section>
 

@@ -16,16 +16,28 @@
   <header class="bg-gradient-to-r from-[#003049] to-[#005f73] shadow-md">
     <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
       <h1 class="text-3xl font-extrabold tracking-tight">UniverBoard</h1>
-      <nav class="hidden md:flex space-x-8 rtl:space-x-reverse">
+      <nav id="navbar" class="hidden md:flex space-x-8 rtl:space-x-reverse">
         <a class="text-gray-300 hover:text-white transition font-semibold" href="#">الرئيسية</a>
         <a class="text-gray-300 hover:text-white transition font-semibold" href="#">عن النظام</a>
         <a class="text-gray-300 hover:text-white transition font-semibold" href="#">الدعم</a>
         <a class="text-gray-300 hover:text-white transition font-semibold" href="#">تواصل معنا</a>
       </nav>
-      <button aria-label="تبديل الوضع الليلي" class="text-gray-300 hover:text-white focus:outline-none text-xl" id="darkModeToggle">
-        <i class="fas fa-moon"></i>
-      </button>
+      <div class="flex items-center space-x-4 rtl:space-x-reverse">
+        <button aria-label="تبديل الوضع الليلي" class="text-gray-300 hover:text-white focus:outline-none text-xl" id="darkModeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button id="menuToggle" aria-label="قائمة التنقل" class="md:hidden text-gray-300 hover:text-white focus:outline-none text-2xl">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </div>
+    <!-- Mobile menu -->
+    <nav id="mobileMenu" class="md:hidden bg-gradient-to-r from-[#003049] to-[#005f73] shadow-inner max-w-7xl mx-auto px-6 py-4 space-y-4 hidden">
+      <a class="block text-gray-300 hover:text-white transition font-semibold text-lg" href="#">الرئيسية</a>
+      <a class="block text-gray-300 hover:text-white transition font-semibold text-lg" href="#">عن النظام</a>
+      <a class="block text-gray-300 hover:text-white transition font-semibold text-lg" href="#">الدعم</a>
+      <a class="block text-gray-300 hover:text-white transition font-semibold text-lg" href="#">تواصل معنا</a>
+    </nav>
   </header>
   <main class="flex-grow max-w-6xl mx-auto px-6 py-12 relative">
     <section class="text-center mb-16">
@@ -140,7 +152,6 @@
     </section>
   </main>
 
-  <!-- Dropdown Register Form fixed at bottom with full width inside container -->
   <div
     id="registerDropdown"
     class="fixed bottom-0 left-0 right-0 max-w-6xl mx-auto bg-white dark:bg-[#1f2937] rounded-t-3xl shadow-2xl p-8 opacity-0 pointer-events-none transform translate-y-full transition-all duration-300 z-50"
@@ -228,8 +239,20 @@
       } else {
         registerDropdown.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
         registerDropdown.classList.remove('translate-y-full', 'opacity-0', 'pointer-events-none');
-        // Scroll to bottom so user sees the dropdown
         registerDropdown.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      }
+    });
+
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuToggle.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+        menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+      } else {
+        mobileMenu.classList.add('hidden');
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
       }
     });
   </script>

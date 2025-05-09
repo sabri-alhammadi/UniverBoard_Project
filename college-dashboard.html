@@ -5,6 +5,7 @@
   <title>لوحة تحكم إدارة الكلية</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <style>
     body {
       font-family: 'Cairo', sans-serif;
@@ -13,103 +14,125 @@
 </head>
 <body class="bg-gray-100 text-gray-900 dark:bg-[#222222] dark:text-white min-h-screen p-4">
 
-  <section id="college-dashboard" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-6 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-semibold mb-5 text-center">لوحة تحكم إدارة الكلية</h2>
-    <p class="text-lg text-center max-w-xl mx-auto">مرحبًا، تم تسجيل 120 طالب هذا الفصل وتم إنشاء 34 مقرر جديد.</p>
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6">
-      <div class="bg-white dark:bg-[#2a2a2a] p-6 rounded-md shadow flex flex-col items-center justify-center">
-        <h3 class="text-xl font-semibold mb-2">عدد الطلاب</h3>
-        <p class="text-4xl font-bold text-green-600">2,435</p>
-      </div>
-      <div class="bg-white dark:bg-[#2a2a2a] p-6 rounded-md shadow flex flex-col items-center justify-center">
-        <h3 class="text-xl font-semibold mb-2">عدد الأساتذة</h3>
-        <p class="text-4xl font-bold text-blue-600">186</p>
-      </div>
-      <div class="bg-white dark:bg-[#2a2a2a] p-6 rounded-md shadow flex flex-col items-center justify-center">
-        <h3 class="text-xl font-semibold mb-2">عدد المقررات</h3>
-        <p class="text-4xl font-bold text-orange-600">342</p>
-      </div>
-    </div>
-  </section>
+  <div class="flex flex-col md:flex-row min-h-screen gap-6">
+    <!-- Sidebar -->
+    <nav class="w-full md:w-1/4 bg-gray-800 text-white p-6 rounded-xl shadow-lg flex-shrink-0">
+      <h2 class="text-2xl font-semibold mb-6 text-center">لوحة التحكم</h2>
+      <ul class="space-y-4 text-lg">
+        <li><a href="#college-dashboard" class="block p-2 rounded hover:bg-gray-700 transition">لوحة تحكم الكلية</a></li>
+        <li><a href="#academic-programs" class="block p-2 rounded hover:bg-gray-700 transition">إدارة البرامج الأكاديمية</a></li>
+        <li><a href="#student-enrollment" class="block p-2 rounded hover:bg-gray-700 transition">إدارة تسجيل الطلاب</a></li>
+        <li><a href="#schedule-management" class="block p-2 rounded hover:bg-gray-700 transition">إدارة الجداول الدراسية</a></li>
+        <li><a href="#reports" class="block p-2 rounded hover:bg-gray-700 transition">التقارير والإحصائيات</a></li>
+      </ul>
+    </nav>
 
-  <section id="academic-programs" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-6 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-semibold mb-5 text-center">إدارة البرامج الأكاديمية</h2>
-    <ul class="list-disc list-inside text-lg space-y-3 max-w-xl mx-auto text-gray-800 dark:text-gray-300">
-      <li>هندسة البرمجيات</li>
-      <li>الذكاء الاصطناعي وعلوم البيانات</li>
-      <li>هندسة الشبكات والأمن السيبراني</li>
-      <li>هندسة الطاقة المتجددة</li>
-    </ul>
-  </section>
+    <!-- Content -->
+    <main class="w-full md:w-3/4 space-y-8 overflow-auto">
+      <!-- Dashboard Section -->
+      <section id="college-dashboard" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 max-w-5xl mx-auto">
+        <h2 class="text-3xl font-semibold mb-5 text-center">لوحة تحكم إدارة الكلية</h2>
+        <p class="text-lg text-center max-w-xl mx-auto">مرحبًا، تم تسجيل 120 طالب هذا الفصل وتم إنشاء 34 مقرر جديد.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6">
+          <div class="bg-white dark:bg-[#2a2a2a] p-6 rounded-md shadow flex flex-col items-center justify-center">
+            <h3 class="text-xl font-semibold mb-2">عدد الطلاب</h3>
+            <p class="text-4xl font-bold text-green-600">2,435</p>
+          </div>
+          <div class="bg-white dark:bg-[#2a2a2a] p-6 rounded-md shadow flex flex-col items-center justify-center">
+            <h3 class="text-xl font-semibold mb-2">عدد الأساتذة</h3>
+            <p class="text-4xl font-bold text-blue-600">186</p>
+          </div>
+          <div class="bg-white dark:bg-[#2a2a2a] p-6 rounded-md shadow flex flex-col items-center justify-center">
+            <h3 class="text-xl font-semibold mb-2">عدد المقررات</h3>
+            <p class="text-4xl font-bold text-orange-600">342</p>
+          </div>
+        </div>
+      </section>
 
-  <section id="student-enrollment" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-6 max-w-5xl mx-auto overflow-x-auto">
-    <h2 class="text-3xl font-semibold mb-5 text-center">إدارة تسجيل الطلاب</h2>
-    <table class="min-w-full border border-gray-300 dark:border-gray-600 text-center text-base">
-      <thead class="bg-[#669bbc] text-white">
-        <tr>
-          <th class="py-3 px-4">اسم الطالب</th>
-          <th class="py-3 px-4">القسم</th>
-          <th class="py-3 px-4">الحالة</th>
-          <th class="py-3 px-4">إجراء</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-          <td class="py-2 px-4">فاطمة خالد</td>
-          <td class="py-2 px-4">الذكاء الاصطناعي</td>
-          <td class="py-2 px-4 text-yellow-600 font-semibold">قيد التسجيل</td>
-          <td class="py-2 px-4">
-            <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1">
-              <i class="fas fa-search"></i> مراجعة
-            </a>
-          </td>
-        </tr>
-        <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-          <td class="py-2 px-4">سلمان العتيبي</td>
-          <td class="py-2 px-4">هندسة البرمجيات</td>
-          <td class="py-2 px-4 text-green-600 font-semibold">مسجل</td>
-          <td class="py-2 px-4">
-            <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1">
-              <i class="fas fa-search"></i> مراجعة
-            </a>
-          </td>
-        </tr>
-        <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-          <td class="py-2 px-4">ندى الزهراني</td>
-          <td class="py-2 px-4">هندسة الشبكات</td>
-          <td class="py-2 px-4 text-red-600 font-semibold">مرفوض</td>
-          <td class="py-2 px-4">
-            <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1">
-              <i class="fas fa-search"></i> مراجعة
-            </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+      <!-- Academic Programs Section -->
+      <section id="academic-programs" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 max-w-5xl mx-auto">
+        <h2 class="text-3xl font-semibold mb-5 text-center">إدارة البرامج الأكاديمية</h2>
+        <ul class="list-disc list-inside text-lg space-y-3 max-w-xl mx-auto text-gray-800 dark:text-gray-300">
+          <li>هندسة البرمجيات</li>
+          <li>الذكاء الاصطناعي وعلوم البيانات</li>
+          <li>هندسة الشبكات والأمن السيبراني</li>
+          <li>هندسة الطاقة المتجددة</li>
+        </ul>
+      </section>
 
-  <section id="schedule-management" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-6 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-semibold mb-5 text-center">إدارة الجداول الدراسية</h2>
-    <p class="text-lg mb-4 text-center max-w-xl mx-auto">جدول هندسة البرمجيات - الفصل الثاني:</p>
-    <ul class="text-lg space-y-2 max-w-xl mx-auto text-gray-800 dark:text-gray-300">
-      <li><strong>الأحد:</strong> Python (8:00 - 10:00)</li>
-      <li><strong>الإثنين:</strong> نظم تشغيل (10:30 - 12:30)</li>
-      <li><strong>الثلاثاء:</strong> تحليل نظم (1:00 - 3:00)</li>
-      <li><strong>الأربعاء:</strong> قواعد بيانات (9:00 - 11:00)</li>
-      <li><strong>الخميس:</strong> شبكات الحاسوب (10:00 - 12:00)</li>
-    </ul>
-  </section>
+      <!-- Student Enrollment Section -->
+      <section id="student-enrollment" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 max-w-5xl mx-auto overflow-x-auto">
+        <h2 class="text-3xl font-semibold mb-5 text-center">إدارة تسجيل الطلاب</h2>
+        <table class="min-w-full border border-gray-300 dark:border-gray-600 text-center text-base">
+          <thead class="bg-[#669bbc] text-white">
+            <tr>
+              <th class="py-3 px-4">اسم الطالب</th>
+              <th class="py-3 px-4">القسم</th>
+              <th class="py-3 px-4">الحالة</th>
+              <th class="py-3 px-4">إجراء</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+              <td class="py-2 px-4">فاطمة خالد</td>
+              <td class="py-2 px-4">الذكاء الاصطناعي</td>
+              <td class="py-2 px-4 text-yellow-600 font-semibold">قيد التسجيل</td>
+              <td class="py-2 px-4">
+                <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1">
+                  <i class="fas fa-search"></i> مراجعة
+                </a>
+              </td>
+            </tr>
+            <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+              <td class="py-2 px-4">سلمان العتيبي</td>
+              <td class="py-2 px-4">هندسة البرمجيات</td>
+              <td class="py-2 px-4 text-green-600 font-semibold">مسجل</td>
+              <td class="py-2 px-4">
+                <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1">
+                  <i class="fas fa-search"></i> مراجعة
+                </a>
+              </td>
+            </tr>
+            <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+              <td class="py-2 px-4">ندى الزهراني</td>
+              <td class="py-2 px-4">هندسة الشبكات</td>
+              <td class="py-2 px-4 text-red-600 font-semibold">مرفوض</td>
+              <td class="py-2 px-4">
+                <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1">
+                  <i class="fas fa-search"></i> مراجعة
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-  <section id="reports" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-6 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-semibold mb-5 text-center">التقارير والإحصائيات</h2>
-    <ul class="list-disc list-inside text-lg space-y-3 max-w-xl mx-auto text-gray-800 dark:text-gray-300">
-      <li>إجمالي الطلاب المسجلين هذا العام: <strong>2435</strong></li>
-      <li>عدد الخريجين في 2024: <strong>380</strong></li>
-      <li>نسبة النجاح العامة: <strong>84%</strong></li>
-      <li>متوسط معدل الحضور: <strong>92%</strong></li>
-      <li>عدد الأساتذة النشطين: <strong>180</strong></li>
-    </ul>
-  </section>
+      <!-- Schedule Management Section -->
+      <section id="schedule-management" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 max-w-5xl mx-auto">
+        <h2 class="text-3xl font-semibold mb-5 text-center">إدارة الجداول الدراسية</h2>
+        <p class="text-lg mb-4 text-center max-w-xl mx-auto">جدول هندسة البرمجيات - الفصل الثاني:</p>
+        <ul class="text-lg space-y-2 max-w-xl mx-auto text-gray-800 dark:text-gray-300">
+          <li><strong>الأحد:</strong> Python (8:00 - 10:00)</li>
+          <li><strong>الإثنين:</strong> نظم تشغيل (10:30 - 12:30)</li>
+          <li><strong>الثلاثاء:</strong> تحليل نظم (1:00 - 3:00)</li>
+          <li><strong>الأربعاء:</strong> قواعد بيانات (9:00 - 11:00)</li>
+          <li><strong>الخميس:</strong> شبكات الحاسوب (10:00 - 12:00)</li>
+        </ul>
+      </section>
+
+      <!-- Reports Section -->
+      <section id="reports" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 max-w-5xl mx-auto">
+        <h2 class="text-3xl font-semibold mb-5 text-center">التقارير والإحصائيات</h2>
+        <ul class="list-disc list-inside text-lg space-y-3 max-w-xl mx-auto text-gray-800 dark:text-gray-300">
+          <li>إجمالي الطلاب المسجلين هذا العام: <strong>2435</strong></li>
+          <li>عدد الخريجين في 2024: <strong>380</strong></li>
+          <li>نسبة النجاح العامة: <strong>84%</strong></li>
+          <li>متوسط معدل الحضور: <strong>92%</strong></li>
+          <li>عدد الأساتذة النشطين: <strong>180</strong></li>
+        </ul>
+      </section>
+    </main>
+  </div>
 
 </body>
 </html>

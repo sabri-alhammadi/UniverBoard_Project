@@ -1,1 +1,101 @@
-<html><body><h1>لوحة تحكم الأستاذ</h1></body></html>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة تحكم الأستاذ</title>
+  <!-- إضافة روابط إلى ملفات CSS مثل Tailwind أو أي مكتبات أخرى -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900 dark:bg-[#222222] dark:text-white">
+  <!-- لوحة تحكم الأستاذ (Teacher Dashboard) -->
+  <section id="teacher-dashboard" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+    <h2 class="text-2xl font-semibold mb-3">لوحة تحكم الأستاذ</h2>
+    <p class="text-lg">مرحبًا د. سامي! لديك 2 اختبار قادم لتقييمه و3 واجبات تم تسليمها.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+      <div class="bg-white dark:bg-[#2a2a2a] p-4 rounded-md shadow">
+        <h3 class="text-xl font-semibold mb-2">المقررات المكلف بها</h3>
+        <ul class="list-disc list-inside space-y-1">
+          <li>البرمجة بلغة Python</li>
+          <li>قواعد البيانات</li>
+        </ul>
+      </div>
+      <div class="bg-white dark:bg-[#2a2a2a] p-4 rounded-md shadow">
+        <h3 class="text-xl font-semibold mb-2">إشعارات</h3>
+        <ul class="list-disc list-inside space-y-1">
+          <li>تم تسليم 3 واجبات جديدة</li>
+          <li>الطلاب طرحوا موضوعًا في منتدى Python</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- واجهة إدارة المحتوى للمقرر -->
+  <section id="course-management" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-6">
+    <h2 class="text-2xl font-semibold mb-3">إدارة محتوى المقرر: Python</h2>
+    <div class="space-y-3">
+      <div class="bg-white dark:bg-[#2a2a2a] p-4 rounded-md">
+        <h3 class="font-semibold text-lg">المحاضرات</h3>
+        <ul class="list-disc list-inside">
+          <li>محاضرة 1: مقدمة في Python - <a href="#" class="text-blue-500 underline">عرض</a></li>
+          <li>محاضرة 2: المتغيرات والأنواع - <a href="#" class="text-blue-500 underline">عرض</a></li>
+        </ul>
+      </div>
+      <div class="bg-white dark:bg-[#2a2a2a] p-4 rounded-md">
+        <h3 class="font-semibold text-lg">الواجبات</h3>
+        <p>واجب 1: إنشاء برنامج حاسبة بسيط. <span class="text-sm text-gray-500">تاريخ التسليم: 2025-05-15</span></p>
+      </div>
+      <div class="bg-white dark:bg-[#2a2a2a] p-4 rounded-md">
+        <h3 class="font-semibold text-lg">الاختبارات</h3>
+        <p>اختبار منتصف الفصل - 20 سؤال اختيار من متعدد. <a href="#" class="text-blue-500 underline">إدارة</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- واجهة تقييم الواجبات -->
+  <section id="grade-assignments" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-6">
+    <h2 class="text-2xl font-semibold mb-3">تقييم الواجبات</h2>
+    <table class="min-w-full border border-gray-300 dark:border-gray-600 text-center text-base">
+      <thead class="bg-[#669bbc] text-white">
+        <tr>
+          <th class="py-3 px-4">اسم الطالب</th>
+          <th class="py-3 px-4">المقرر</th>
+          <th class="py-3 px-4">الواجب</th>
+          <th class="py-3 px-4">الحالة</th>
+          <th class="py-3 px-4">إجراء</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t border-gray-300 dark:border-gray-600">
+          <td class="py-2 px-4">محمد أحمد</td>
+          <td class="py-2 px-4">Python</td>
+          <td class="py-2 px-4">واجب 1</td>
+          <td class="py-2 px-4 text-green-600 font-semibold">مُسلَّم</td>
+          <td class="py-2 px-4"><a href="#" class="text-blue-500 underline">تقييم</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- واجهة دفتر الدرجات -->
+  <section id="gradebook" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-6">
+    <h2 class="text-2xl font-semibold mb-3">دفتر الدرجات</h2>
+    <table class="min-w-full border border-gray-300 dark:border-gray-600 text-center text-base">
+      <thead class="bg-[#669bbc] text-white">
+        <tr>
+          <th class="py-3 px-4">الطالب</th>
+          <th class="py-3 px-4">Python</th>
+          <th class="py-3 px-4">قواعد البيانات</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t border-gray-300 dark:border-gray-600">
+          <td class="py-2 px-4">محمد أحمد</td>
+          <td class="py-2 px-4">88</td>
+          <td class="py-2 px-4">91</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</body>
+</html>

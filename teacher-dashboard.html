@@ -12,129 +12,176 @@
     }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-900 dark:bg-[#222222] dark:text-white min-h-screen p-4">
+<body class="bg-gray-100 text-gray-900 dark:bg-[#222222] dark:text-white min-h-screen p-4 flex">
+  <!-- Sidebar -->
+  <nav aria-label="القائمة الجانبية" class="fixed top-0 right-0 h-full w-48 bg-[#669bbc] pt-20 overflow-y-auto shadow-lg z-30">
+    <ul class="flex flex-col space-y-1 text-white text-lg px-2">
+      <li>
+        <a href="#teacher-dashboard" class="flex items-center gap-2 px-4 py-3 hover:bg-[#003049] transition-colors duration-300 rounded">
+          <i class="fas fa-tachometer-alt w-5"></i> لوحة التحكم
+        </a>
+      </li>
+      <li>
+        <a href="#course-management" class="flex items-center gap-2 px-4 py-3 hover:bg-[#003049] transition-colors duration-300 rounded">
+          <i class="fas fa-cogs w-5"></i> إدارة المقررات
+        </a>
+      </li>
+      <li>
+        <a href="#grade-assignments" class="flex items-center gap-2 px-4 py-3 hover:bg-[#003049] transition-colors duration-300 rounded">
+          <i class="fas fa-pen-nib w-5"></i> تقييم الواجبات
+        </a>
+      </li>
+      <li>
+        <a href="#gradebook" class="flex items-center gap-2 px-4 py-3 hover:bg-[#003049] transition-colors duration-300 rounded">
+          <i class="fas fa-book-reader w-5"></i> دفتر الدرجات
+        </a>
+      </li>
+      <li>
+        <a href="#notifications" class="flex items-center gap-2 px-4 py-3 hover:bg-[#003049] transition-colors duration-300 rounded">
+          <i class="fas fa-bell w-5"></i> الإشعارات
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-  <section id="teacher-dashboard" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-semibold mb-4 text-center">لوحة تحكم الأستاذ</h2>
-    <p class="text-lg text-center max-w-xl mx-auto">مرحبًا د. سامي! لديك 2 اختبار قادم لتقييمه و3 واجبات تم تسليمها.</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-      <div class="bg-white dark:bg-[#2a2a2a] p-5 rounded-md shadow">
-        <h3 class="text-xl font-semibold mb-3">المقررات المكلف بها</h3>
-        <ul class="list-disc list-inside space-y-2 text-gray-800 dark:text-gray-300">
-          <li>البرمجة بلغة Python</li>
-          <li>قواعد البيانات</li>
-        </ul>
+  <main class="flex-1 pr-52 max-w-5xl mx-auto space-y-8">
+    <section id="teacher-dashboard" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+      <h2 class="text-3xl font-semibold mb-4 text-center">لوحة تحكم الأستاذ</h2>
+      <p class="text-lg text-center max-w-xl mx-auto">مرحبًا د. سامي! لديك 2 اختبار قادم لتقييمه و3 واجبات تم تسليمها.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        <div class="bg-white dark:bg-[#2a2a2a] p-5 rounded-md shadow">
+          <h3 class="text-xl font-semibold mb-3 flex items-center gap-2">
+            <i class="fas fa-book-open text-blue-600"></i> المقررات المكلف بها
+          </h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-800 dark:text-gray-300">
+            <li>البرمجة بلغة Python</li>
+            <li>قواعد البيانات</li>
+          </ul>
+        </div>
+        <div id="notifications" class="bg-white dark:bg-[#2a2a2a] p-5 rounded-md shadow">
+          <h3 class="text-xl font-semibold mb-3 flex items-center gap-2">
+            <i class="fas fa-bell text-yellow-500"></i> إشعارات
+          </h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-800 dark:text-gray-300">
+            <li>تم تسليم 3 واجبات جديدة</li>
+            <li>الطلاب طرحوا موضوعًا في منتدى Python</li>
+          </ul>
+        </div>
       </div>
-      <div class="bg-white dark:bg-[#2a2a2a] p-5 rounded-md shadow">
-        <h3 class="text-xl font-semibold mb-3">إشعارات</h3>
-        <ul class="list-disc list-inside space-y-2 text-gray-800 dark:text-gray-300">
-          <li>تم تسليم 3 واجبات جديدة</li>
-          <li>الطلاب طرحوا موضوعًا في منتدى Python</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="course-management" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-8 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-semibold mb-5 text-center">إدارة محتوى المقرر: Python</h2>
-    <div class="space-y-6">
-      <div class="bg-white dark:bg-[#2a2a2a] p-5 rounded-md shadow">
-        <h3 class="font-semibold text-2xl mb-3">المحاضرات</h3>
-        <ul class="list-disc list-inside space-y-2 text-gray-800 dark:text-gray-300">
-          <li>محاضرة 1: مقدمة في Python - <a href="#" class="text-blue-500 underline">عرض</a></li>
-          <li>محاضرة 2: المتغيرات والأنواع - <a href="#" class="text-blue-500 underline">عرض</a></li>
-        </ul>
+    <section id="course-management" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+      <h2 class="text-3xl font-semibold mb-5 text-center flex items-center justify-center gap-2">
+        <i class="fas fa-cogs text-green-600"></i> إدارة محتوى المقرر: Python
+      </h2>
+      <div class="space-y-6">
+        <div class="bg-white dark:bg-[#2a2a2a] p-5 rounded-md shadow">
+          <h3 class="font-semibold text-2xl mb-3 flex items-center gap-2">
+            <i class="fas fa-chalkboard-teacher text-indigo-600"></i> المحاضرات
+          </h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-800 dark:text-gray-300">
+            <li>محاضرة 1: مقدمة في Python - <a href="#" class="text-blue-500 underline">عرض</a></li>
+            <li>محاضرة 2: المتغيرات والأنواع - <a href="#" class="text-blue-500 underline">عرض</a></li>
+          </ul>
+        </div>
+        <div class="bg-white dark:bg-[#2a2a2a] p-5 rounded-md shadow">
+          <h3 class="font-semibold text-2xl mb-3 flex items-center gap-2">
+            <i class="fas fa-tasks text-purple-600"></i> الواجبات
+          </h3>
+          <p class="text-gray-800 dark:text-gray-300 text-lg">واجب 1: إنشاء برنامج حاسبة بسيط. <span class="text-sm text-gray-500 dark:text-gray-400">تاريخ التسليم: 2025-05-15</span></p>
+        </div>
+        <div class="bg-white dark:bg-[#2a2a2a] p-5 rounded-md shadow">
+          <h3 class="font-semibold text-2xl mb-3 flex items-center gap-2">
+            <i class="fas fa-file-alt text-red-600"></i> الاختبارات
+          </h3>
+          <p class="text-gray-800 dark:text-gray-300 text-lg">اختبار منتصف الفصل - 20 سؤال اختيار من متعدد. <a href="#" class="text-blue-500 underline">إدارة</a></p>
+        </div>
       </div>
-      <div class="bg-white dark:bg-[#2a2a2a] p-5 rounded-md shadow">
-        <h3 class="font-semibold text-2xl mb-3">الواجبات</h3>
-        <p class="text-gray-800 dark:text-gray-300 text-lg">واجب 1: إنشاء برنامج حاسبة بسيط. <span class="text-sm text-gray-500 dark:text-gray-400">تاريخ التسليم: 2025-05-15</span></p>
-      </div>
-      <div class="bg-white dark:bg-[#2a2a2a] p-5 rounded-md shadow">
-        <h3 class="font-semibold text-2xl mb-3">الاختبارات</h3>
-        <p class="text-gray-800 dark:text-gray-300 text-lg">اختبار منتصف الفصل - 20 سؤال اختيار من متعدد. <a href="#" class="text-blue-500 underline">إدارة</a></p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="grade-assignments" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-8 max-w-5xl mx-auto overflow-x-auto">
-    <h2 class="text-3xl font-semibold mb-5 text-center">تقييم الواجبات</h2>
-    <table class="min-w-full border border-gray-300 dark:border-gray-600 text-center text-base">
-      <thead class="bg-[#669bbc] text-white">
-        <tr>
-          <th class="py-3 px-4">اسم الطالب</th>
-          <th class="py-3 px-4">المقرر</th>
-          <th class="py-3 px-4">الواجب</th>
-          <th class="py-3 px-4">الحالة</th>
-          <th class="py-3 px-4">إجراء</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-          <td class="py-2 px-4">محمد أحمد</td>
-          <td class="py-2 px-4">Python</td>
-          <td class="py-2 px-4">واجب 1</td>
-          <td class="py-2 px-4 text-green-600 font-semibold">مُسلَّم</td>
-          <td class="py-2 px-4">
-            <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1">
-              <i class="fas fa-pen"></i> تقييم
-            </a>
-          </td>
-        </tr>
-        <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-          <td class="py-2 px-4">سارة محمد</td>
-          <td class="py-2 px-4">Python</td>
-          <td class="py-2 px-4">واجب 1</td>
-          <td class="py-2 px-4 text-yellow-500 font-semibold">قيد التقييم</td>
-          <td class="py-2 px-4">
-            <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1">
-              <i class="fas fa-pen"></i> تقييم
-            </a>
-          </td>
-        </tr>
-        <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-          <td class="py-2 px-4">علي حسن</td>
-          <td class="py-2 px-4">Python</td>
-          <td class="py-2 px-4">واجب 1</td>
-          <td class="py-2 px-4 text-red-600 font-semibold">لم يُسلَّم</td>
-          <td class="py-2 px-4">
-            <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1 pointer-events-none opacity-50">
-              <i class="fas fa-pen"></i> تقييم
-            </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+    <section id="grade-assignments" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 overflow-x-auto">
+      <h2 class="text-3xl font-semibold mb-5 text-center flex items-center justify-center gap-2">
+        <i class="fas fa-pen-nib text-pink-600"></i> تقييم الواجبات
+      </h2>
+      <table class="min-w-full border border-gray-300 dark:border-gray-600 text-center text-base">
+        <thead class="bg-[#669bbc] text-white">
+          <tr>
+            <th class="py-3 px-4">اسم الطالب</th>
+            <th class="py-3 px-4">المقرر</th>
+            <th class="py-3 px-4">الواجب</th>
+            <th class="py-3 px-4">الحالة</th>
+            <th class="py-3 px-4">إجراء</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+            <td class="py-2 px-4">محمد أحمد</td>
+            <td class="py-2 px-4">Python</td>
+            <td class="py-2 px-4">واجب 1</td>
+            <td class="py-2 px-4 text-green-600 font-semibold">مُسلَّم</td>
+            <td class="py-2 px-4">
+              <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1">
+                <i class="fas fa-pen"></i> تقييم
+              </a>
+            </td>
+          </tr>
+          <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+            <td class="py-2 px-4">سارة محمد</td>
+            <td class="py-2 px-4">Python</td>
+            <td class="py-2 px-4">واجب 1</td>
+            <td class="py-2 px-4 text-yellow-500 font-semibold">قيد التقييم</td>
+            <td class="py-2 px-4">
+              <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1">
+                <i class="fas fa-pen"></i> تقييم
+              </a>
+            </td>
+          </tr>
+          <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+            <td class="py-2 px-4">علي حسن</td>
+            <td class="py-2 px-4">Python</td>
+            <td class="py-2 px-4">واجب 1</td>
+            <td class="py-2 px-4 text-red-600 font-semibold">لم يُسلَّم</td>
+            <td class="py-2 px-4">
+              <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1 pointer-events-none opacity-50">
+                <i class="fas fa-pen"></i> تقييم
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-  <section id="gradebook" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-8 max-w-5xl mx-auto overflow-x-auto">
-    <h2 class="text-3xl font-semibold mb-5 text-center">دفتر الدرجات</h2>
-    <table class="min-w-full border border-gray-300 dark:border-gray-600 text-center text-base">
-      <thead class="bg-[#669bbc] text-white">
-        <tr>
-          <th class="py-3 px-4">الطالب</th>
-          <th class="py-3 px-4">Python</th>
-          <th class="py-3 px-4">قواعد البيانات</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-          <td class="py-2 px-4">محمد أحمد</td>
-          <td class="py-2 px-4">88</td>
-          <td class="py-2 px-4">91</td>
-        </tr>
-        <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-          <td class="py-2 px-4">سارة محمد</td>
-          <td class="py-2 px-4">92</td>
-          <td class="py-2 px-4">89</td>
-        </tr>
-        <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-          <td class="py-2 px-4">علي حسن</td>
-          <td class="py-2 px-4">75</td>
-          <td class="py-2 px-4">80</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
+    <section id="gradebook" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 overflow-x-auto">
+      <h2 class="text-3xl font-semibold mb-5 text-center flex items-center justify-center gap-2">
+        <i class="fas fa-book-reader text-yellow-600"></i> دفتر الدرجات
+      </h2>
+      <table class="min-w-full border border-gray-300 dark:border-gray-600 text-center text-base">
+        <thead class="bg-[#669bbc] text-white">
+          <tr>
+            <th class="py-3 px-4">الطالب</th>
+            <th class="py-3 px-4">Python</th>
+            <th class="py-3 px-4">قواعد البيانات</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+            <td class="py-2 px-4">محمد أحمد</td>
+            <td class="py-2 px-4">88</td>
+            <td class="py-2 px-4">91</td>
+          </tr>
+          <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+            <td class="py-2 px-4">سارة محمد</td>
+            <td class="py-2 px-4">92</td>
+            <td class="py-2 px-4">89</td>
+          </tr>
+          <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+            <td class="py-2 px-4">علي حسن</td>
+            <td class="py-2 px-4">75</td>
+            <td class="py-2 px-4">80</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
 </body>
-          </html>
+</html>

@@ -12,39 +12,39 @@
     }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-900 dark:bg-[#222222] dark:text-white min-h-screen p-4 flex flex-col md:flex-row">
+<body class="bg-gray-100 text-gray-900 dark:bg-[#222222] dark:text-white min-h-screen p-4 flex">
   <!-- Sidebar -->
-  <nav aria-label="القائمة الجانبية" class="fixed top-0 right-0 h-full w-48 bg-[#669bbc] pt-20 overflow-y-auto shadow-lg z-30 md:static md:h-auto md:w-48 md:flex-shrink-0">
-    <ul class="flex flex-row md:flex-col space-x-2 md:space-x-0 md:space-y-1 text-white text-lg px-2 overflow-x-auto md:overflow-visible">
+  <nav aria-label="القائمة الجانبية" class="fixed top-0 right-0 h-full w-48 bg-[#669bbc] pt-20 overflow-y-auto shadow-lg z-30">
+    <ul class="flex flex-col space-y-1 text-white text-lg px-2">
       <li>
-        <a href="#teacher-dashboard" class="flex items-center gap-2 px-4 py-3 hover:bg-[#003049] transition-colors duration-300 rounded whitespace-nowrap">
+        <a href="#teacher-dashboard" class="flex items-center gap-2 px-4 py-3 hover:bg-[#003049] transition-colors duration-300 rounded">
           <i class="fas fa-tachometer-alt w-5"></i> لوحة التحكم
         </a>
       </li>
       <li>
-        <a href="#course-management" class="flex items-center gap-2 px-4 py-3 hover:bg-[#003049] transition-colors duration-300 rounded whitespace-nowrap">
+        <a href="#course-management" class="flex items-center gap-2 px-4 py-3 hover:bg-[#003049] transition-colors duration-300 rounded">
           <i class="fas fa-cogs w-5"></i> إدارة المقررات
         </a>
       </li>
       <li>
-        <a href="#grade-assignments" class="flex items-center gap-2 px-4 py-3 hover:bg-[#003049] transition-colors duration-300 rounded whitespace-nowrap">
+        <a href="#grade-assignments" class="flex items-center gap-2 px-4 py-3 hover:bg-[#003049] transition-colors duration-300 rounded">
           <i class="fas fa-pen-nib w-5"></i> تقييم الواجبات
         </a>
       </li>
       <li>
-        <a href="#gradebook" class="flex items-center gap-2 px-4 py-3 hover:bg-[#003049] transition-colors duration-300 rounded whitespace-nowrap">
+        <a href="#gradebook" class="flex items-center gap-2 px-4 py-3 hover:bg-[#003049] transition-colors duration-300 rounded">
           <i class="fas fa-book-reader w-5"></i> دفتر الدرجات
         </a>
       </li>
       <li>
-        <a href="#notifications" class="flex items-center gap-2 px-4 py-3 hover:bg-[#003049] transition-colors duration-300 rounded whitespace-nowrap">
+        <a href="#notifications" class="flex items-center gap-2 px-4 py-3 hover:bg-[#003049] transition-colors duration-300 rounded">
           <i class="fas fa-bell w-5"></i> الإشعارات
         </a>
       </li>
     </ul>
   </nav>
 
-  <main class="flex-1 md:pr-52 max-w-5xl mx-auto space-y-8 mt-20 md:mt-0">
+  <main class="flex-1 pr-52 max-w-5xl mx-auto space-y-8">
     <section id="teacher-dashboard" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
       <h2 class="text-3xl font-semibold mb-4 text-center">لوحة تحكم الأستاذ</h2>
       <p class="text-lg text-center max-w-xl mx-auto">مرحبًا د. سامي! لديك 2 اختبار قادم لتقييمه و3 واجبات تم تسليمها.</p>

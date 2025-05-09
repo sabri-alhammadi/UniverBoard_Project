@@ -12,8 +12,8 @@
     }
   </style>
 </head>
-<body class="bg-gray-50 dark:bg-[#121212] text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
-  <header class="bg-gradient-to-r from-[#003049] to-[#005f73] shadow-md">
+<body class="bg-gray-50 dark:bg-[#121212] text-gray-900 dark:text-gray-100 min-h-screen flex flex-col relative">
+  <header class="bg-gradient-to-r from-[#003049] to-[#005f73] shadow-md z-30">
     <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
       <h1 class="text-3xl font-extrabold tracking-tight">UniverBoard</h1>
       <nav id="navbar" class="hidden md:flex space-x-8 rtl:space-x-reverse">
@@ -39,7 +39,7 @@
       <a class="block text-gray-300 hover:text-white transition font-semibold text-lg" href="#">تواصل معنا</a>
     </nav>
   </header>
-  <main class="flex-grow max-w-6xl mx-auto px-6 py-12 relative">
+  <main class="flex-grow max-w-6xl mx-auto px-6 py-12 relative z-10">
     <section class="text-center mb-16">
       <h2 class="text-4xl font-extrabold mb-4 text-[#003049] dark:text-[#90e0ef]">بوابة النظام الموحد</h2>
       <p class="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
@@ -152,13 +152,19 @@
     </section>
   </main>
 
+  <!-- Overlay to close register dropdown -->
+  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-40 hidden z-40"></div>
+
   <div
     id="registerDropdown"
     class="fixed bottom-0 left-0 right-0 max-w-6xl mx-auto bg-white dark:bg-[#1f2937] rounded-t-3xl shadow-2xl p-8 opacity-0 pointer-events-none transform translate-y-full transition-all duration-300 z-50"
   >
-    <h3 class="text-xl font-extrabold mb-6 text-center text-[#0077b6] dark:text-[#00b4d8]">
-      إنشاء حساب جديد
-    </h3>
+    <div class="flex justify-between items-center mb-6">
+      <h3 class="text-xl font-extrabold text-[#0077b6] dark:text-[#00b4d8]">إنشاء حساب جديد</h3>
+      <button id="closeRegisterBtn" aria-label="إغلاق" class="text-[#0077b6] dark:text-[#00b4d8] hover:text-[#005f73] dark:hover:text-[#0096a7] text-2xl font-bold focus:outline-none">
+        &times;
+      </button>
+    </div>
     <form action="#" method="POST" class="space-y-5">
       <div>
         <label for="reg-username" class="block mb-2 font-semibold">اسم المستخدم</label>
@@ -230,19 +236,40 @@
 
     const showRegisterBtn = document.getElementById('showRegisterBtn');
     const registerDropdown = document.getElementById('registerDropdown');
+    const overlay = document.getElementById('overlay');
+    const closeRegisterBtn = document.getElementById('closeRegisterBtn');
+
+    function openRegisterDropdown() {
+      registerDropdown.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+      registerDropdown.classList.remove('translate-y-full', 'opacity-0', 'pointer-events-none');
+      overlay.classList.remove('hidden');
+      registerDropdown.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+
+    function closeRegisterDropdown() {
+      registerDropdown.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+      registerDropdown.classList.add('translate-y-full', 'opacity-0', 'pointer-events-none');
+      overlay.classList.add('hidden');
+    }
 
     showRegisterBtn.addEventListener('click', () => {
       const isOpen = registerDropdown.classList.contains('translate-y-0');
       if (isOpen) {
-        registerDropdown.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-        registerDropdown.classList.add('translate-y-full', 'opacity-0', 'pointer-events-none');
+        closeRegisterDropdown();
       } else {
-        registerDropdown.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
-        registerDropdown.classList.remove('translate-y-full', 'opacity-0', 'pointer-events-none');
-        registerDropdown.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        openRegisterDropdown();
       }
     });
 
+    closeRegisterBtn.addEventListener('click', () => {
+      closeRegisterDropdown();
+    });
+
+    overlay.addEventListener('click', () => {
+      closeRegisterDropdown();
+    });
+
+    // Mobile menu toggle
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
 

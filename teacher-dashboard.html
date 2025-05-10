@@ -1,7 +1,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=412, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>لوحة تحكم الأستاذ</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
@@ -14,7 +14,7 @@
 </head>
 <body class="bg-gray-100 text-gray-900 dark:bg-[#222222] dark:text-white min-h-screen p-4 flex flex-col">
   <!-- Mobile Header with Dropdown Toggle -->
-  <header class="flex items-center justify-between bg-[#669bbc] text-white p-4 fixed top-0 right-0 left-0 z-40 md:hidden">
+  <header class="flex items-center justify-between bg-[#669bbc] text-white p-4 fixed top-0 right-0 left-0 z-40">
     <h1 class="text-xl font-semibold">لوحة تحكم الأستاذ</h1>
     <button id="menu-toggle" aria-label="فتح القائمة المنسدلة" class="text-white text-2xl focus:outline-none flex flex-col justify-center gap-1.5">
       <span class="block w-6 h-0.5 bg-white rounded"></span>
@@ -55,7 +55,7 @@
   </nav>
 
   <!-- Mobile Dropdown Menu -->
-  <div id="mobile-dropdown" class="fixed top-16 right-4 left-4 bg-[#669bbc] rounded-md shadow-lg z-40 hidden flex-col text-white text-lg overflow-hidden">
+  <div id="mobile-dropdown" class="fixed top-16 right-4 left-4 bg-[#669bbc] rounded-md shadow-lg z-40 hidden flex-col text-white text-lg overflow-hidden max-h-[calc(100vh-5rem)] overflow-y-auto">
     <ul class="flex flex-col divide-y divide-[#557a9a]">
       <li>
         <a href="#teacher-dashboard" class="flex items-center gap-2 px-4 py-3 hover:bg-[#557a9a] transition-colors duration-300">
@@ -85,11 +85,11 @@
     </ul>
   </div>
 
-  <main class="flex-1 pr-0 md:pr-52 max-w-5xl mx-auto space-y-8 mt-16 md:mt-0">
+  <main class="flex-1 pr-0 md:pr-52 max-w-xl mx-auto space-y-8 mt-16">
     <section id="teacher-dashboard" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
       <h2 class="text-3xl font-semibold mb-4 text-center">لوحة تحكم الأستاذ</h2>
       <p class="text-lg text-center max-w-xl mx-auto">مرحبًا د. سامي! لديك 2 اختبار قادم لتقييمه و3 واجبات تم تسليمها.</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+      <div class="grid grid-cols-1 gap-6 mt-6">
         <div class="bg-white dark:bg-[#2a2a2a] p-5 rounded-md shadow">
           <h3 class="text-xl font-semibold mb-3 flex items-center gap-2">
             <i class="fas fa-book-open text-blue-600"></i> المقررات المكلف بها

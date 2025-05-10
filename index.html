@@ -12,60 +12,75 @@
     }
     /* Dropdown animation */
     .dropdown {
-      transition: opacity 0.3s ease, transform 0.3s ease;
+      transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       transform-origin: top center;
+      will-change: opacity, transform;
     }
     .dropdown-hidden {
       opacity: 0;
       pointer-events: none;
-      transform: translateY(-10px) scale(0.95);
+      transform: translateY(-15px) scale(0.95);
     }
     .dropdown-visible {
       opacity: 1;
       pointer-events: auto;
-      transform: translateY(6px) scale(1);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-      border: 1px solid rgba(0,0,0,0.1);
-      backdrop-filter: saturate(180%) blur(10px);
-      background-color: rgba(255 255 255 / 0.95);
+      transform: translateY(8px) scale(1);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+      border: 1px solid rgba(0,0,0,0.12);
+      backdrop-filter: saturate(180%) blur(12px);
+      background-color: rgba(255 255 255 / 0.97);
       color: #1f2937;
+      border-radius: 0.75rem;
+      z-index: 9999;
     }
     .dark .dropdown-visible {
-      background-color: rgba(31 41 55 / 0.95);
+      background-color: rgba(31 41 55 / 0.97);
       color: #d1d5db;
-      border-color: rgba(255 255 255 / 0.1);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      border-color: rgba(255 255 255 / 0.12);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
     }
     /* Arrow under button */
     .dropdown-arrow {
       position: absolute;
-      width: 14px;
-      height: 14px;
+      width: 16px;
+      height: 16px;
       background: inherit;
       transform: rotate(45deg);
-      top: -7px;
-      right: 16px;
-      border-left: 1px solid rgba(0,0,0,0.1);
-      border-top: 1px solid rgba(0,0,0,0.1);
+      top: -8px;
+      right: 50%;
+      margin-right: -8px;
+      border-left: 1px solid rgba(0,0,0,0.12);
+      border-top: 1px solid rgba(0,0,0,0.12);
       backdrop-filter: inherit;
+      border-radius: 0 0 0 2px;
+      z-index: 10000;
     }
     .dark .dropdown-arrow {
-      border-left: 1px solid rgba(255 255 255 / 0.1);
-      border-top: 1px solid rgba(255 255 255 / 0.1);
+      border-left: 1px solid rgba(255 255 255 / 0.12);
+      border-top: 1px solid rgba(255 255 255 / 0.12);
+    }
+    /* Button icon rotation */
+    button[aria-expanded="true"] > i.fas.fa-chevron-down {
+      transform: rotate(180deg);
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    button[aria-expanded="false"] > i.fas.fa-chevron-down {
+      transform: rotate(0deg);
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
   </style>
 </head>
 <body class="bg-gray-50 dark:bg-[#121212] text-gray-900 dark:text-gray-100 min-h-screen flex flex-col relative">
   <header class="bg-gradient-to-r from-[#003049] to-[#005f73] shadow-md z-30">
-    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between relative">
       <h1 class="text-3xl font-extrabold tracking-tight">UniverBoard</h1>
-      <nav id="navbar" class="hidden md:flex space-x-8 rtl:space-x-reverse relative">
+      <nav id="navbar" class="hidden md:flex space-x-8 rtl:space-x-reverse relative max-w-full overflow-visible">
         <div class="relative">
-          <button aria-expanded="false" aria-controls="dropdownMain" id="btnMain" class="text-gray-300 hover:text-white transition font-semibold focus:outline-none flex items-center space-x-1 rtl:space-x-reverse select-none">
+          <button aria-expanded="false" aria-controls="dropdownMain" id="btnMain" class="text-gray-300 hover:text-white transition font-semibold focus:outline-none flex items-center space-x-1 rtl:space-x-reverse select-none whitespace-nowrap">
             <span>الرئيسية</span>
-            <i class="fas fa-chevron-down text-sm transition-transform duration-300"></i>
+            <i class="fas fa-chevron-down text-sm"></i>
           </button>
-          <div id="dropdownMain" class="dropdown dropdown-hidden absolute right-0 mt-1 w-72 rounded-lg p-5 z-50">
+          <div id="dropdownMain" class="dropdown dropdown-hidden absolute w-80 rounded-lg p-5">
             <div class="dropdown-arrow"></div>
             <ul class="space-y-3 list-disc list-inside text-sm leading-relaxed">
               <li>بوابة النظام الموحد للوصول السريع إلى خدمات الجامعة.</li>
@@ -75,11 +90,11 @@
           </div>
         </div>
         <div class="relative">
-          <button aria-expanded="false" aria-controls="dropdownAbout" id="btnAbout" class="text-gray-300 hover:text-white transition font-semibold focus:outline-none flex items-center space-x-1 rtl:space-x-reverse select-none">
+          <button aria-expanded="false" aria-controls="dropdownAbout" id="btnAbout" class="text-gray-300 hover:text-white transition font-semibold focus:outline-none flex items-center space-x-1 rtl:space-x-reverse select-none whitespace-nowrap">
             <span>عن النظام</span>
-            <i class="fas fa-chevron-down text-sm transition-transform duration-300"></i>
+            <i class="fas fa-chevron-down text-sm"></i>
           </button>
-          <div id="dropdownAbout" class="dropdown dropdown-hidden absolute right-0 mt-1 w-80 rounded-lg p-5 z-50">
+          <div id="dropdownAbout" class="dropdown dropdown-hidden absolute w-80 rounded-lg p-5">
             <div class="dropdown-arrow"></div>
             <ul class="space-y-3 list-disc list-inside text-sm leading-relaxed">
               <li>نظام موحد يربط بين جميع الجهات الأكاديمية والإدارية في الجامعة.</li>
@@ -90,11 +105,11 @@
           </div>
         </div>
         <div class="relative">
-          <button aria-expanded="false" aria-controls="dropdownSupport" id="btnSupport" class="text-gray-300 hover:text-white transition font-semibold focus:outline-none flex items-center space-x-1 rtl:space-x-reverse select-none">
+          <button aria-expanded="false" aria-controls="dropdownSupport" id="btnSupport" class="text-gray-300 hover:text-white transition font-semibold focus:outline-none flex items-center space-x-1 rtl:space-x-reverse select-none whitespace-nowrap">
             <span>الدعم</span>
-            <i class="fas fa-chevron-down text-sm transition-transform duration-300"></i>
+            <i class="fas fa-chevron-down text-sm"></i>
           </button>
-          <div id="dropdownSupport" class="dropdown dropdown-hidden absolute right-0 mt-1 w-80 rounded-lg p-5 z-50">
+          <div id="dropdownSupport" class="dropdown dropdown-hidden absolute w-80 rounded-lg p-5">
             <div class="dropdown-arrow"></div>
             <ul class="space-y-3 list-disc list-inside text-sm leading-relaxed">
               <li>فريق دعم فني متاح على مدار الساعة لمساعدتك في حل المشكلات.</li>
@@ -105,11 +120,11 @@
           </div>
         </div>
         <div class="relative">
-          <button aria-expanded="false" aria-controls="dropdownContact" id="btnContact" class="text-gray-300 hover:text-white transition font-semibold focus:outline-none flex items-center space-x-1 rtl:space-x-reverse select-none">
+          <button aria-expanded="false" aria-controls="dropdownContact" id="btnContact" class="text-gray-300 hover:text-white transition font-semibold focus:outline-none flex items-center space-x-1 rtl:space-x-reverse select-none whitespace-nowrap">
             <span>تواصل معنا</span>
-            <i class="fas fa-chevron-down text-sm transition-transform duration-300"></i>
+            <i class="fas fa-chevron-down text-sm"></i>
           </button>
-          <div id="dropdownContact" class="dropdown dropdown-hidden absolute right-0 mt-1 w-80 rounded-lg p-5 z-50">
+          <div id="dropdownContact" class="dropdown dropdown-hidden absolute w-80 rounded-lg p-5">
             <div class="dropdown-arrow"></div>
             <ul class="space-y-3 list-disc list-inside text-sm leading-relaxed">
               <li>البريد الإلكتروني: support@univerboard.edu.sa</li>
@@ -437,25 +452,38 @@
         btn.setAttribute('aria-expanded', 'false');
         dropdown.classList.add('dropdown-hidden');
         dropdown.classList.remove('dropdown-visible');
-        const icon = btn.querySelector('i.fas.fa-chevron-down');
-        if (icon) icon.style.transform = 'rotate(0deg)';
+        dropdown.style.right = '';
+        dropdown.style.left = '';
+        dropdown.style.top = '';
       });
     }
 
     function openDropdown(btn, dropdown) {
-      // Position dropdown right aligned with button
       const btnRect = btn.getBoundingClientRect();
       const headerRect = btn.closest('header').getBoundingClientRect();
-      const rightOffset = headerRect.right - btnRect.right;
-      dropdown.style.right = rightOffset + 'px';
-      const topOffset = btnRect.bottom - headerRect.top + 6;
-      dropdown.style.top = topOffset + 'px';
+
+      if (dropdown.id === 'dropdownMain' || dropdown.id === 'dropdownAbout') {
+        // Get dropdownSupport's right edge relative to header
+        const supportBtn = document.getElementById('btnSupport');
+        const supportBtnRect = supportBtn.getBoundingClientRect();
+
+        // Calculate right offset so dropdown aligns with dropdownSupport's right edge plus 12px to shift right
+        const rightOffset = headerRect.right - supportBtnRect.right - 12;
+
+        dropdown.style.right = rightOffset + 'px';
+        dropdown.style.top = (btnRect.bottom - headerRect.top + 8) + 'px';
+        dropdown.style.left = 'auto';
+      } else {
+        // For dropdownSupport and dropdownContact, align right edge with button's right edge
+        const rightOffset = headerRect.right - btnRect.right;
+        dropdown.style.right = rightOffset + 'px';
+        dropdown.style.top = (btnRect.bottom - headerRect.top + 8) + 'px';
+        dropdown.style.left = 'auto';
+      }
 
       dropdown.classList.remove('dropdown-hidden');
       dropdown.classList.add('dropdown-visible');
       btn.setAttribute('aria-expanded', 'true');
-      const icon = btn.querySelector('i.fas.fa-chevron-down');
-      if (icon) icon.style.transform = 'rotate(180deg)';
     }
 
     navItems.forEach(({ btn, dropdown }) => {
@@ -487,4 +515,4 @@
     });
   </script>
 </body>
-  </html>
+</html>

@@ -1,278 +1,288 @@
 <html dir="rtl" lang="ar">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   لوحة تحكم إدارة الكلية
-  </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo&amp;display=swap" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>لوحة تحكم إدارة الكلية</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&amp;display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
   <style>
-   body {
+    body {
       font-family: 'Cairo', sans-serif;
     }
+    nav::-webkit-scrollbar {
+      width: 8px;
+    }
+    nav::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
   </style>
- </head>
- <body class="bg-gray-100 text-gray-900 dark:bg-[#222222] dark:text-white min-h-screen p-4">
-  <div class="flex min-h-screen gap-6">
-   <!-- Sidebar -->
-   <nav class="w-64 bg-gray-800 text-white p-6 rounded-xl shadow-lg flex-shrink-0 fixed top-0 bottom-0 right-0 overflow-y-auto">
-    <h2 class="text-2xl font-semibold mb-6 text-center">
-     لوحة التحكم
-    </h2>
-    <ul class="space-y-4 text-lg">
-     <li>
-      <a class="flex items-center gap-3 p-2 rounded hover:bg-gray-700 transition" href="#college-dashboard">
-       <i class="fas fa-tachometer-alt w-5 text-white"></i>
-       لوحة تحكم الكلية
-      </a>
-     </li>
-     <li>
-      <a class="flex items-center gap-3 p-2 rounded hover:bg-gray-700 transition" href="#academic-programs">
-       <i class="fas fa-book-open w-5 text-white"></i>
-       إدارة البرامج الأكاديمية
-      </a>
-     </li>
-     <li>
-      <a class="flex items-center gap-3 p-2 rounded hover:bg-gray-700 transition" href="#student-enrollment">
-       <i class="fas fa-user-graduate w-5 text-white"></i>
-       إدارة تسجيل الطلاب
-      </a>
-     </li>
-     <li>
-      <a class="flex items-center gap-3 p-2 rounded hover:bg-gray-700 transition" href="#schedule-management">
-       <i class="fas fa-calendar-alt w-5 text-white"></i>
-       إدارة الجداول الدراسية
-      </a>
-     </li>
-     <li>
-      <a class="flex items-center gap-3 p-2 rounded hover:bg-gray-700 transition" href="#reports">
-       <i class="fas fa-chart-bar w-5 text-white"></i>
-       التقارير والإحصائيات
-      </a>
-     </li>
-    </ul>
-   </nav>
-   <!-- Content -->
-   <main class="flex-1 pr-72 space-y-8 overflow-auto">
-    <!-- Dashboard Section -->
-    <section class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 max-w-5xl mx-auto" id="college-dashboard">
-     <h2 class="text-3xl font-semibold mb-5 text-center">
-      لوحة تحكم إدارة الكلية
-     </h2>
-     <p class="text-lg text-center max-w-xl mx-auto">
-      مرحبًا، تم تسجيل 120 طالب هذا الفصل وتم إنشاء 34 مقرر جديد.
-     </p>
-     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6">
-      <div class="bg-white dark:bg-[#2a2a2a] p-6 rounded-md shadow flex flex-col items-center justify-center">
-       <h3 class="text-xl font-semibold mb-2 flex items-center gap-2">
-        <i class="fas fa-user-graduate text-green-600 text-2xl"></i> عدد الطلاب
-       </h3>
-       <p class="text-4xl font-bold text-green-600">
-        2,435
-       </p>
-      </div>
-      <div class="bg-white dark:bg-[#2a2a2a] p-6 rounded-md shadow flex flex-col items-center justify-center">
-       <h3 class="text-xl font-semibold mb-2 flex items-center gap-2">
-        <i class="fas fa-chalkboard-teacher text-blue-600 text-2xl"></i> عدد الأساتذة
-       </h3>
-       <p class="text-4xl font-bold text-blue-600">
-        186
-       </p>
-      </div>
-      <div class="bg-white dark:bg-[#2a2a2a] p-6 rounded-md shadow flex flex-col items-center justify-center">
-       <h3 class="text-xl font-semibold mb-2 flex items-center gap-2">
-        <i class="fas fa-book text-orange-600 text-2xl"></i> عدد المقررات
-       </h3>
-       <p class="text-4xl font-bold text-orange-600">
-        342
-       </p>
-      </div>
-     </div>
-    </section>
-    <!-- Academic Programs Section -->
-    <section class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 max-w-5xl mx-auto" id="academic-programs">
-     <h2 class="text-3xl font-semibold mb-5 text-center">
-      إدارة البرامج الأكاديمية
-     </h2>
-     <ul class="list-disc list-inside text-lg space-y-3 max-w-xl mx-auto text-gray-800 dark:text-gray-300">
-      <li class="flex items-center gap-2">
-       <i class="fas fa-laptop-code text-gray-600 dark:text-gray-400"></i> هندسة البرمجيات
-      </li>
-      <li class="flex items-center gap-2">
-       <i class="fas fa-robot text-gray-600 dark:text-gray-400"></i> الذكاء الاصطناعي وعلوم البيانات
-      </li>
-      <li class="flex items-center gap-2">
-       <i class="fas fa-network-wired text-gray-600 dark:text-gray-400"></i> هندسة الشبكات والأمن السيبراني
-      </li>
-      <li class="flex items-center gap-2">
-       <i class="fas fa-solar-panel text-gray-600 dark:text-gray-400"></i> هندسة الطاقة المتجددة
-      </li>
-     </ul>
-    </section>
-    <!-- Student Enrollment Section -->
-    <section class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 max-w-5xl mx-auto overflow-x-auto" id="student-enrollment">
-     <h2 class="text-3xl font-semibold mb-5 text-center">
-      إدارة تسجيل الطلاب
-     </h2>
-     <table class="min-w-full border border-gray-300 dark:border-gray-600 text-center text-base">
-      <thead class="bg-[#669bbc] text-white">
-       <tr>
-        <th class="py-3 px-4">
-         اسم الطالب
-        </th>
-        <th class="py-3 px-4">
-         القسم
-        </th>
-        <th class="py-3 px-4">
-         الحالة
-        </th>
-        <th class="py-3 px-4">
-         إجراء
-        </th>
-       </tr>
-      </thead>
-      <tbody>
-       <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-        <td class="py-2 px-4">
-         فاطمة خالد
-        </td>
-        <td class="py-2 px-4">
-         الذكاء الاصطناعي
-        </td>
-        <td class="py-2 px-4 text-yellow-600 font-semibold">
-         قيد التسجيل
-        </td>
-        <td class="py-2 px-4">
-         <a class="text-blue-500 underline flex items-center justify-center gap-1" href="#">
-          <i class="fas fa-search"></i> مراجعة
-         </a>
-        </td>
-       </tr>
-       <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-        <td class="py-2 px-4">
-         سلمان العتيبي
-        </td>
-        <td class="py-2 px-4">
-         هندسة البرمجيات
-        </td>
-        <td class="py-2 px-4 text-green-600 font-semibold">
-         مسجل
-        </td>
-        <td class="py-2 px-4">
-         <a class="text-blue-500 underline flex items-center justify-center gap-1" href="#">
-          <i class="fas fa-search"></i> مراجعة
-         </a>
-        </td>
-       </tr>
-       <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-        <td class="py-2 px-4">
-         ندى الزهراني
-        </td>
-        <td class="py-2 px-4">
-         هندسة الشبكات
-        </td>
-        <td class="py-2 px-4 text-red-600 font-semibold">
-         مرفوض
-        </td>
-        <td class="py-2 px-4">
-         <a class="text-blue-500 underline flex items-center justify-center gap-1" href="#">
-          <i class="fas fa-search"></i> مراجعة
-         </a>
-        </td>
-       </tr>
-       <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-        <td class="py-2 px-4">
-         يوسف الحربي
-        </td>
-        <td class="py-2 px-4">
-         هندسة الطاقة
-        </td>
-        <td class="py-2 px-4 text-green-600 font-semibold">
-         مسجل
-        </td>
-        <td class="py-2 px-4">
-         <a class="text-blue-500 underline flex items-center justify-center gap-1" href="#">
-          <i class="fas fa-search"></i> مراجعة
-         </a>
-        </td>
-       </tr>
-       <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-        <td class="py-2 px-4">
-         ليلى السالم
-        </td>
-        <td class="py-2 px-4">
-         علوم الحاسب
-        </td>
-        <td class="py-2 px-4 text-yellow-600 font-semibold">
-         قيد التسجيل
-        </td>
-        <td class="py-2 px-4">
-         <a class="text-blue-500 underline flex items-center justify-center gap-1" href="#">
-          <i class="fas fa-search"></i> مراجعة
-         </a>
-        </td>
-       </tr>
-      </tbody>
-     </table>
-    </section>
-    <!-- Schedule Management Section -->
-    <section class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 max-w-5xl mx-auto" id="schedule-management">
-     <h2 class="text-3xl font-semibold mb-5 text-center">
-      إدارة الجداول الدراسية
-     </h2>
-     <p class="text-lg mb-4 text-center max-w-xl mx-auto">
-      جدول هندسة البرمجيات - الفصل الثاني:
-     </p>
-     <ul class="text-lg space-y-2 max-w-xl mx-auto text-gray-800 dark:text-gray-300">
-      <li class="flex items-center gap-2">
-       <strong>الأحد:</strong> Python (8:00 - 10:00)
-       <i class="fab fa-python text-blue-600"></i>
-      </li>
-      <li class="flex items-center gap-2">
-       <strong>الإثنين:</strong> نظم تشغيل (10:30 - 12:30)
-       <i class="fas fa-desktop text-gray-600 dark:text-gray-400"></i>
-      </li>
-      <li class="flex items-center gap-2">
-       <strong>الثلاثاء:</strong> تحليل نظم (1:00 - 3:00)
-       <i class="fas fa-project-diagram text-gray-600 dark:text-gray-400"></i>
-      </li>
-      <li class="flex items-center gap-2">
-       <strong>الأربعاء:</strong> قواعد بيانات (9:00 - 11:00)
-       <i class="fas fa-database text-gray-600 dark:text-gray-400"></i>
-      </li>
-      <li class="flex items-center gap-2">
-       <strong>الخميس:</strong> شبكات الحاسوب (10:00 - 12:00)
-       <i class="fas fa-network-wired text-gray-600 dark:text-gray-400"></i>
-      </li>
-     </ul>
-    </section>
-    <!-- Reports Section -->
-    <section class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 max-w-5xl mx-auto" id="reports">
-     <h2 class="text-3xl font-semibold mb-5 text-center">
-      التقارير والإحصائيات
-     </h2>
-     <ul class="list-disc list-inside text-lg space-y-3 max-w-xl mx-auto text-gray-800 dark:text-gray-300">
-      <li class="flex items-center gap-2">
-       <i class="fas fa-user-graduate text-gray-600 dark:text-gray-400"></i> إجمالي الطلاب المسجلين هذا العام: <strong>2435</strong>
-      </li>
-      <li class="flex items-center gap-2">
-       <i class="fas fa-user-check text-gray-600 dark:text-gray-400"></i> عدد الخريجين في 2024: <strong>380</strong>
-      </li>
-      <li class="flex items-center gap-2">
-       <i class="fas fa-percentage text-gray-600 dark:text-gray-400"></i> نسبة النجاح العامة: <strong>84%</strong>
-      </li>
-      <li class="flex items-center gap-2">
-       <i class="fas fa-calendar-check text-gray-600 dark:text-gray-400"></i> متوسط معدل الحضور: <strong>92%</strong>
-      </li>
-      <li class="flex items-center gap-2">
-       <i class="fas fa-chalkboard-teacher text-gray-600 dark:text-gray-400"></i> عدد الأساتذة النشطين: <strong>180</strong>
-      </li>
-     </ul>
-    </section>
-   </main>
+</head>
+<body class="bg-gray-100 dark:bg-[#222222] dark:text-white min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="bg-gray-800 text-white p-4 flex items-center justify-between sticky top-0 z-50 shadow-md">
+    <h1 class="text-xl sm:text-2xl font-semibold">لوحة تحكم إدارة الكلية</h1>
+    <button id="menu-toggle" aria-label="Toggle menu" class="md:hidden text-white text-2xl focus:outline-none">
+      <i class="fas fa-bars"></i>
+    </button>
+  </header>
+
+  <div class="flex flex-1 overflow-hidden">
+    <!-- Sidebar -->
+    <nav
+      id="sidebar"
+      class="fixed top-16 right-0 w-64 h-[calc(100vh-4rem)] bg-gray-800 text-white p-6 space-y-6 overflow-y-auto transform translate-x-full md:translate-x-0 transition-transform duration-300 md:static md:h-auto md:w-64 md:flex-shrink-0 rounded-xl shadow-lg z-40"
+      aria-label="Sidebar Navigation"
+    >
+      <ul class="space-y-4 text-lg">
+        <li>
+          <a href="#college-dashboard" class="flex items-center gap-3 p-2 rounded hover:bg-gray-700 transition">
+            <i class="fas fa-tachometer-alt w-5"></i> لوحة تحكم الكلية
+          </a>
+        </li>
+        <li>
+          <a href="#academic-programs" class="flex items-center gap-3 p-2 rounded hover:bg-gray-700 transition">
+            <i class="fas fa-book-open w-5"></i> إدارة البرامج الأكاديمية
+          </a>
+        </li>
+        <li>
+          <a href="#student-enrollment" class="flex items-center gap-3 p-2 rounded hover:bg-gray-700 transition">
+            <i class="fas fa-user-graduate w-5"></i> إدارة تسجيل الطلاب
+          </a>
+        </li>
+        <li>
+          <a href="#schedule-management" class="flex items-center gap-3 p-2 rounded hover:bg-gray-700 transition">
+            <i class="fas fa-calendar-alt w-5"></i> إدارة الجداول الدراسية
+          </a>
+        </li>
+        <li>
+          <a href="#reports" class="flex items-center gap-3 p-2 rounded hover:bg-gray-700 transition">
+            <i class="fas fa-chart-bar w-5"></i> التقارير والإحصائيات
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-auto p-6 max-w-full">
+      <!-- College Dashboard -->
+      <section
+        id="college-dashboard"
+        class="max-w-5xl mx-auto bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
+      >
+        <h2 class="text-3xl font-semibold mb-5 text-center text-gray-900 dark:text-white">لوحة تحكم إدارة الكلية</h2>
+        <p class="text-lg text-center max-w-xl mx-auto text-gray-800 dark:text-gray-300">
+          مرحبًا، تم تسجيل 120 طالب هذا الفصل وتم إنشاء 34 مقرر جديد.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6">
+          <div class="bg-white dark:bg-[#2a2a2a] p-6 rounded-md shadow flex flex-col items-center justify-center">
+            <h3 class="text-xl font-semibold mb-2 flex items-center gap-2">
+              <i class="fas fa-user-graduate text-green-600 text-2xl"></i> عدد الطلاب
+            </h3>
+            <p class="text-4xl font-bold text-green-600">2,435</p>
+          </div>
+          <div class="bg-white dark:bg-[#2a2a2a] p-6 rounded-md shadow flex flex-col items-center justify-center">
+            <h3 class="text-xl font-semibold mb-2 flex items-center gap-2">
+              <i class="fas fa-chalkboard-teacher text-blue-600 text-2xl"></i> عدد الأساتذة
+            </h3>
+            <p class="text-4xl font-bold text-blue-600">186</p>
+          </div>
+          <div class="bg-white dark:bg-[#2a2a2a] p-6 rounded-md shadow flex flex-col items-center justify-center">
+            <h3 class="text-xl font-semibold mb-2 flex items-center gap-2">
+              <i class="fas fa-book text-orange-600 text-2xl"></i> عدد المقررات
+            </h3>
+            <p class="text-4xl font-bold text-orange-600">342</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Academic Programs -->
+      <section
+        id="academic-programs"
+        class="max-w-5xl mx-auto bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-10"
+      >
+        <h2 class="text-3xl font-semibold mb-5 text-center text-gray-900 dark:text-white">إدارة البرامج الأكاديمية</h2>
+        <ul class="list-disc list-inside text-lg space-y-3 max-w-xl mx-auto text-gray-800 dark:text-gray-300">
+          <li class="flex items-center gap-2">
+            <i class="fas fa-laptop-code text-gray-600 dark:text-gray-400"></i> هندسة البرمجيات
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fas fa-robot text-gray-600 dark:text-gray-400"></i> الذكاء الاصطناعي وعلوم البيانات
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fas fa-network-wired text-gray-600 dark:text-gray-400"></i> هندسة الشبكات والأمن السيبراني
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fas fa-solar-panel text-gray-600 dark:text-gray-400"></i> هندسة الطاقة المتجددة
+          </li>
+        </ul>
+      </section>
+
+      <!-- Student Enrollment -->
+      <section
+        id="student-enrollment"
+        class="max-w-5xl mx-auto bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-10 overflow-x-auto"
+      >
+        <h2 class="text-3xl font-semibold mb-5 text-center text-gray-900 dark:text-white">إدارة تسجيل الطلاب</h2>
+        <table class="min-w-full border border-gray-300 dark:border-gray-600 text-center text-base rounded-lg overflow-hidden">
+          <thead class="bg-[#669bbc] text-white">
+            <tr>
+              <th class="py-3 px-4">اسم الطالب</th>
+              <th class="py-3 px-4">القسم</th>
+              <th class="py-3 px-4">الحالة</th>
+              <th class="py-3 px-4">إجراء</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+              <td class="py-2 px-4">فاطمة خالد</td>
+              <td class="py-2 px-4">الذكاء الاصطناعي</td>
+              <td class="py-2 px-4 text-yellow-600 font-semibold">قيد التسجيل</td>
+              <td class="py-2 px-4">
+                <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1">
+                  <i class="fas fa-search"></i> مراجعة
+                </a>
+              </td>
+            </tr>
+            <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+              <td class="py-2 px-4">سلمان العتيبي</td>
+              <td class="py-2 px-4">هندسة البرمجيات</td>
+              <td class="py-2 px-4 text-green-600 font-semibold">مسجل</td>
+              <td class="py-2 px-4">
+                <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1">
+                  <i class="fas fa-search"></i> مراجعة
+                </a>
+              </td>
+            </tr>
+            <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+              <td class="py-2 px-4">ندى الزهراني</td>
+              <td class="py-2 px-4">هندسة الشبكات</td>
+              <td class="py-2 px-4 text-red-600 font-semibold">مرفوض</td>
+              <td class="py-2 px-4">
+                <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1">
+                  <i class="fas fa-search"></i> مراجعة
+                </a>
+              </td>
+            </tr>
+            <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+              <td class="py-2 px-4">يوسف الحربي</td>
+              <td class="py-2 px-4">هندسة الطاقة</td>
+              <td class="py-2 px-4 text-green-600 font-semibold">مسجل</td>
+              <td class="py-2 px-4">
+                <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1">
+                  <i class="fas fa-search"></i> مراجعة
+                </a>
+              </td>
+            </tr>
+            <tr class="border-t border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+              <td class="py-2 px-4">ليلى السالم</td>
+              <td class="py-2 px-4">علوم الحاسب</td>
+              <td class="py-2 px-4 text-yellow-600 font-semibold">قيد التسجيل</td>
+              <td class="py-2 px-4">
+                <a href="#" class="text-blue-500 underline flex items-center justify-center gap-1">
+                  <i class="fas fa-search"></i> مراجعة
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Schedule Management -->
+      <section
+        id="schedule-management"
+        class="max-w-5xl mx-auto bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-10"
+      >
+        <h2 class="text-3xl font-semibold mb-5 text-center text-gray-900 dark:text-white">إدارة الجداول الدراسية</h2>
+        <p class="text-lg mb-4 text-center max-w-xl mx-auto text-gray-800 dark:text-gray-300">
+          جدول هندسة البرمجيات - الفصل الثاني:
+        </p>
+        <ul class="text-lg space-y-2 max-w-xl mx-auto text-gray-800 dark:text-gray-300">
+          <li class="flex items-center gap-2">
+            <strong>الأحد:</strong> Python (8:00 - 10:00)
+            <i class="fab fa-python text-blue-600"></i>
+          </li>
+          <li class="flex items-center gap-2">
+            <strong>الإثنين:</strong> نظم تشغيل (10:30 - 12:30)
+            <i class="fas fa-desktop text-gray-600 dark:text-gray-400"></i>
+          </li>
+          <li class="flex items-center gap-2">
+            <strong>الثلاثاء:</strong> تحليل نظم (1:00 - 3:00)
+            <i class="fas fa-project-diagram text-gray-600 dark:text-gray-400"></i>
+          </li>
+          <li class="flex items-center gap-2">
+            <strong>الأربعاء:</strong> قواعد بيانات (9:00 - 11:00)
+            <i class="fas fa-database text-gray-600 dark:text-gray-400"></i>
+          </li>
+          <li class="flex items-center gap-2">
+            <strong>الخميس:</strong> شبكات الحاسوب (10:00 - 12:00)
+            <i class="fas fa-network-wired text-gray-600 dark:text-gray-400"></i>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Reports -->
+      <section
+        id="reports"
+        class="max-w-5xl mx-auto bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-10 mb-10"
+      >
+        <h2 class="text-3xl font-semibold mb-5 text-center text-gray-900 dark:text-white">التقارير والإحصائيات</h2>
+        <ul class="list-disc list-inside text-lg space-y-3 max-w-xl mx-auto text-gray-800 dark:text-gray-300">
+          <li class="flex items-center gap-2">
+            <i class="fas fa-user-graduate text-gray-600 dark:text-gray-400"></i>
+            إجمالي الطلاب المسجلين هذا العام: <strong>2435</strong>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fas fa-user-check text-gray-600 dark:text-gray-400"></i> عدد الخريجين في 2024:
+            <strong>380</strong>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fas fa-percentage text-gray-600 dark:text-gray-400"></i> نسبة النجاح العامة:
+            <strong>84%</strong>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fas fa-calendar-check text-gray-600 dark:text-gray-400"></i> متوسط معدل الحضور:
+            <strong>92%</strong>
+          </li>
+          <li class="flex items-center gap-2">
+            <i class="fas fa-chalkboard-teacher text-gray-600 dark:text-gray-400"></i> عدد الأساتذة النشطين:
+            <strong>180</strong>
+          </li>
+        </ul>
+      </section>
+    </main>
   </div>
- </body>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+
+    menuToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('translate-x-full');
+    });
+
+    sidebar.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 768) {
+          sidebar.classList.add('translate-x-full');
+        }
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        sidebar.classList.remove('translate-x-full');
+      } else {
+        sidebar.classList.add('translate-x-full');
+      }
+    });
+
+    if (window.innerWidth >= 768) {
+      sidebar.classList.remove('translate-x-full');
+    } else {
+      sidebar.classList.add('translate-x-full');
+    }
+  </script>
+</body>
 </html>

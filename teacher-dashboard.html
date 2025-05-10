@@ -13,18 +13,18 @@
   </style>
 </head>
 <body class="bg-gray-100 text-gray-900 dark:bg-[#222222] dark:text-white min-h-screen p-4 flex flex-col">
-  <!-- Mobile Header with Hamburger -->
+  <!-- Mobile Header with Dropdown Toggle -->
   <header class="flex items-center justify-between bg-[#669bbc] text-white p-4 fixed top-0 right-0 left-0 z-40 md:hidden">
     <h1 class="text-xl font-semibold">لوحة تحكم الأستاذ</h1>
-    <button id="menu-toggle" aria-label="فتح القائمة الجانبية" class="text-white text-2xl focus:outline-none flex flex-col justify-center gap-1.5">
+    <button id="menu-toggle" aria-label="فتح القائمة المنسدلة" class="text-white text-2xl focus:outline-none flex flex-col justify-center gap-1.5">
       <span class="block w-6 h-0.5 bg-white rounded"></span>
       <span class="block w-6 h-0.5 bg-white rounded"></span>
       <span class="block w-6 h-0.5 bg-white rounded"></span>
     </button>
   </header>
 
-  <!-- Sidebar -->
-  <nav aria-label="القائمة الجانبية" id="sidebar" class="fixed top-0 right-0 h-full w-48 bg-[#669bbc] pt-20 overflow-y-auto shadow-lg z-40 hidden md:block">
+  <!-- Desktop Sidebar -->
+  <nav aria-label="القائمة الجانبية" id="sidebar" class="fixed top-0 right-0 h-full w-48 bg-[#669bbc] pt-20 overflow-y-auto shadow-lg z-30 hidden md:block">
     <ul class="flex flex-col space-y-1 text-white text-lg px-2">
       <li>
         <a href="#teacher-dashboard" class="flex items-center gap-2 px-4 py-3 hover:bg-[#003049] transition-colors duration-300 rounded">
@@ -54,8 +54,36 @@
     </ul>
   </nav>
 
-  <!-- Mobile Sidebar Overlay -->
-  <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden"></div>
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-dropdown" class="fixed top-16 right-4 left-4 bg-[#669bbc] rounded-md shadow-lg z-40 hidden flex-col text-white text-lg overflow-hidden">
+    <ul class="flex flex-col divide-y divide-[#557a9a]">
+      <li>
+        <a href="#teacher-dashboard" class="flex items-center gap-2 px-4 py-3 hover:bg-[#557a9a] transition-colors duration-300">
+          <i class="fas fa-tachometer-alt w-5"></i> لوحة التحكم
+        </a>
+      </li>
+      <li>
+        <a href="#course-management" class="flex items-center gap-2 px-4 py-3 hover:bg-[#557a9a] transition-colors duration-300">
+          <i class="fas fa-cogs w-5"></i> إدارة المقررات
+        </a>
+      </li>
+      <li>
+        <a href="#grade-assignments" class="flex items-center gap-2 px-4 py-3 hover:bg-[#557a9a] transition-colors duration-300">
+          <i class="fas fa-pen-nib w-5"></i> تقييم الواجبات
+        </a>
+      </li>
+      <li>
+        <a href="#gradebook" class="flex items-center gap-2 px-4 py-3 hover:bg-[#557a9a] transition-colors duration-300">
+          <i class="fas fa-book-reader w-5"></i> دفتر الدرجات
+        </a>
+      </li>
+      <li>
+        <a href="#notifications" class="flex items-center gap-2 px-4 py-3 hover:bg-[#557a9a] transition-colors duration-300">
+          <i class="fas fa-bell w-5"></i> الإشعارات
+        </a>
+      </li>
+    </ul>
+  </div>
 
   <main class="flex-1 pr-0 md:pr-52 max-w-5xl mx-auto space-y-8 mt-16 md:mt-0">
     <section id="teacher-dashboard" class="bg-gray-100 dark:bg-[#222222] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
@@ -199,39 +227,32 @@
 
   <script>
     const menuToggle = document.getElementById('menu-toggle');
-    const sidebar = document.getElementById('sidebar');
-    const sidebarOverlay = document.getElementById('sidebar-overlay');
+    const mobileDropdown = document.getElementById('mobile-dropdown');
 
     menuToggle.addEventListener('click', () => {
-      const isHidden = sidebar.classList.contains('hidden');
-      if (isHidden) {
-        sidebar.classList.remove('hidden');
-        sidebarOverlay.classList.remove('hidden');
+      if (mobileDropdown.classList.contains('hidden')) {
+        mobileDropdown.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
       } else {
-        sidebar.classList.add('hidden');
-        sidebarOverlay.classList.add('hidden');
+        mobileDropdown.classList.add('hidden');
         document.body.style.overflow = '';
       }
     });
 
-    sidebarOverlay.addEventListener('click', () => {
-      sidebar.classList.add('hidden');
-      sidebarOverlay.classList.add('hidden');
-      document.body.style.overflow = '';
-    });
-
-    // Close sidebar on window resize if desktop
+    // Close dropdown on window resize if desktop
     window.addEventListener('resize', () => {
       if(window.innerWidth >= 768){
-        sidebar.classList.remove('hidden');
-        sidebarOverlay.classList.add('hidden');
-        document.body.style.overflow = '';
-      } else {
-        sidebar.classList.add('hidden');
-        sidebarOverlay.classList.add('hidden');
+        mobileDropdown.classList.add('hidden');
         document.body.style.overflow = '';
       }
+    });
+
+    // Close dropdown when clicking a link
+    mobileDropdown.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDropdown.classList.add('hidden');
+        document.body.style.overflow = '';
+      });
     });
   </script>
 </body>

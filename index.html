@@ -35,6 +35,10 @@
       max-width: 320px;
       width: max-content;
       min-width: 220px;
+      left: 50% !important;
+      right: auto !important;
+      transform-origin: top center !important;
+      transform: translate(-50%, 6px) scale(1) !important;
     }
     .dark .dropdown-visible {
       background-color: rgba(31 41 55 / 0.97);
@@ -442,7 +446,7 @@
       }
     });
 
-    // Desktop dropdown toggles with smooth fade & slide and arrow, plus rotate icon
+    // Desktop dropdown toggles with unified dropdown position centered below navbar
     const navItems = [
       { btn: document.getElementById('btnMain'), dropdown: document.getElementById('dropdownMain') },
       { btn: document.getElementById('btnAbout'), dropdown: document.getElementById('dropdownAbout') },
@@ -455,35 +459,37 @@
         btn.setAttribute('aria-expanded', 'false');
         dropdown.classList.add('dropdown-hidden');
         dropdown.classList.remove('dropdown-visible');
-        dropdown.style.right = '';
         dropdown.style.left = '';
+        dropdown.style.right = '';
         dropdown.style.top = '';
+        dropdown.style.transform = '';
       });
     }
 
     function openDropdown(btn, dropdown) {
-      const btnRect = btn.getBoundingClientRect();
-      const headerRect = btn.closest('header').getBoundingClientRect();
+      const header = btn.closest('header');
+      const headerRect = header.getBoundingClientRect();
 
-      // Calculate horizontal position to keep dropdown fully visible and aligned under button
+      // Position dropdown centered horizontally below the navbar container
       const dropdownWidth = 320; // max width set in CSS
-      let rightPos = headerRect.right - btnRect.right;
-      let leftPos = btnRect.left - headerRect.left;
+      const headerCenter = headerRect.left + headerRect.width / 2;
 
-      // Check if dropdown would overflow viewport on left or right
+      // Calculate left position so dropdown is centered horizontally relative to viewport
+      let leftPos = headerCenter - dropdownWidth / 2;
+
+      // Ensure dropdown does not overflow viewport edges
       const viewportWidth = window.innerWidth;
-      const dropdownRightEdge = btnRect.right + dropdownWidth;
-      if (dropdownRightEdge > viewportWidth) {
-        // Shift dropdown left so it fits
-        rightPos = headerRect.right - viewportWidth + 12; // 12px padding from edge
-        dropdown.style.right = rightPos + 'px';
-        dropdown.style.left = 'auto';
-      } else {
-        dropdown.style.left = leftPos + 'px';
-        dropdown.style.right = 'auto';
-      }
+      if (leftPos < 12) leftPos = 12;
+      if (leftPos + dropdownWidth > viewportWidth - 12) leftPos = viewportWidth - dropdownWidth - 12;
 
-      dropdown.style.top = (btnRect.bottom - headerRect.top + 8) + 'px';
+      dropdown.style.left = leftPos + 'px';
+      dropdown.style.right = 'auto';
+
+      // Position dropdown just below the header
+      dropdown.style.top = headerRect.height + 8 + 'px';
+
+      // Reset transform to default for animation
+      dropdown.style.transform = 'translateY(6px) scale(1)';
 
       dropdown.classList.remove('dropdown-hidden');
       dropdown.classList.add('dropdown-visible');
@@ -519,4 +525,4 @@
     });
   </script>
 </body>
-</html>
+  </html>

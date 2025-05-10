@@ -12,19 +12,19 @@
     }
     /* Dropdown animation */
     .dropdown {
-      transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       transform-origin: top center;
       will-change: opacity, transform;
     }
     .dropdown-hidden {
       opacity: 0;
       pointer-events: none;
-      transform: translateY(-15px) scale(0.95);
+      transform: translateY(-10px) scale(0.95);
     }
     .dropdown-visible {
       opacity: 1;
       pointer-events: auto;
-      transform: translateY(8px) scale(1);
+      transform: translateY(6px) scale(1);
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
       border: 1px solid rgba(0,0,0,0.12);
       backdrop-filter: saturate(180%) blur(12px);
@@ -32,6 +32,9 @@
       color: #1f2937;
       border-radius: 0.75rem;
       z-index: 9999;
+      max-width: 320px;
+      width: max-content;
+      min-width: 220px;
     }
     .dark .dropdown-visible {
       background-color: rgba(31 41 55 / 0.97);
@@ -62,11 +65,11 @@
     /* Button icon rotation */
     button[aria-expanded="true"] > i.fas.fa-chevron-down {
       transform: rotate(180deg);
-      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     button[aria-expanded="false"] > i.fas.fa-chevron-down {
       transform: rotate(0deg);
-      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
   </style>
 </head>
@@ -80,9 +83,9 @@
             <span>الرئيسية</span>
             <i class="fas fa-chevron-down text-sm"></i>
           </button>
-          <div id="dropdownMain" class="dropdown dropdown-hidden absolute w-80 rounded-lg p-5">
+          <div id="dropdownMain" class="dropdown dropdown-hidden absolute rounded-lg p-5">
             <div class="dropdown-arrow"></div>
-            <ul class="space-y-3 list-disc list-inside text-sm leading-relaxed">
+            <ul class="space-y-3 list-disc list-inside text-sm leading-relaxed max-h-60 overflow-auto">
               <li>بوابة النظام الموحد للوصول السريع إلى خدمات الجامعة.</li>
               <li>لوحات تحكم مخصصة للطلاب، الأساتذة، الكليات، والإدارة العليا.</li>
               <li>تسجيل الدخول وإنشاء حساب جديد بسهولة وأمان.</li>
@@ -94,9 +97,9 @@
             <span>عن النظام</span>
             <i class="fas fa-chevron-down text-sm"></i>
           </button>
-          <div id="dropdownAbout" class="dropdown dropdown-hidden absolute w-80 rounded-lg p-5">
+          <div id="dropdownAbout" class="dropdown dropdown-hidden absolute rounded-lg p-5">
             <div class="dropdown-arrow"></div>
-            <ul class="space-y-3 list-disc list-inside text-sm leading-relaxed">
+            <ul class="space-y-3 list-disc list-inside text-sm leading-relaxed max-h-60 overflow-auto">
               <li>نظام موحد يربط بين جميع الجهات الأكاديمية والإدارية في الجامعة.</li>
               <li>يهدف إلى تسهيل الوصول إلى المعلومات والخدمات الأكاديمية.</li>
               <li>يدعم التفاعل والتواصل بين الطلاب والأساتذة والإدارة.</li>
@@ -109,9 +112,9 @@
             <span>الدعم</span>
             <i class="fas fa-chevron-down text-sm"></i>
           </button>
-          <div id="dropdownSupport" class="dropdown dropdown-hidden absolute w-80 rounded-lg p-5">
+          <div id="dropdownSupport" class="dropdown dropdown-hidden absolute rounded-lg p-5">
             <div class="dropdown-arrow"></div>
-            <ul class="space-y-3 list-disc list-inside text-sm leading-relaxed">
+            <ul class="space-y-3 list-disc list-inside text-sm leading-relaxed max-h-60 overflow-auto">
               <li>فريق دعم فني متاح على مدار الساعة لمساعدتك في حل المشكلات.</li>
               <li>دروس تعليمية وفيديوهات توضيحية لاستخدام النظام بكفاءة.</li>
               <li>قاعدة معرفة شاملة تحتوي على الأسئلة الشائعة والإرشادات.</li>
@@ -124,9 +127,9 @@
             <span>تواصل معنا</span>
             <i class="fas fa-chevron-down text-sm"></i>
           </button>
-          <div id="dropdownContact" class="dropdown dropdown-hidden absolute w-80 rounded-lg p-5">
+          <div id="dropdownContact" class="dropdown dropdown-hidden absolute rounded-lg p-5">
             <div class="dropdown-arrow"></div>
-            <ul class="space-y-3 list-disc list-inside text-sm leading-relaxed">
+            <ul class="space-y-3 list-disc list-inside text-sm leading-relaxed max-h-60 overflow-auto">
               <li>البريد الإلكتروني: support@univerboard.edu.sa</li>
               <li>رقم الهاتف: 9200 123 456</li>
               <li>العنوان: شارع الجامعة، الرياض، المملكة العربية السعودية</li>
@@ -462,24 +465,25 @@
       const btnRect = btn.getBoundingClientRect();
       const headerRect = btn.closest('header').getBoundingClientRect();
 
-      if (dropdown.id === 'dropdownMain' || dropdown.id === 'dropdownAbout') {
-        // Get dropdownSupport's right edge relative to header
-        const supportBtn = document.getElementById('btnSupport');
-        const supportBtnRect = supportBtn.getBoundingClientRect();
+      // Calculate horizontal position to keep dropdown fully visible and aligned under button
+      const dropdownWidth = 320; // max width set in CSS
+      let rightPos = headerRect.right - btnRect.right;
+      let leftPos = btnRect.left - headerRect.left;
 
-        // Calculate right offset so dropdown aligns with dropdownSupport's right edge plus 12px to shift right
-        const rightOffset = headerRect.right - supportBtnRect.right - 12;
-
-        dropdown.style.right = rightOffset + 'px';
-        dropdown.style.top = (btnRect.bottom - headerRect.top + 8) + 'px';
+      // Check if dropdown would overflow viewport on left or right
+      const viewportWidth = window.innerWidth;
+      const dropdownRightEdge = btnRect.right + dropdownWidth;
+      if (dropdownRightEdge > viewportWidth) {
+        // Shift dropdown left so it fits
+        rightPos = headerRect.right - viewportWidth + 12; // 12px padding from edge
+        dropdown.style.right = rightPos + 'px';
         dropdown.style.left = 'auto';
       } else {
-        // For dropdownSupport and dropdownContact, align right edge with button's right edge
-        const rightOffset = headerRect.right - btnRect.right;
-        dropdown.style.right = rightOffset + 'px';
-        dropdown.style.top = (btnRect.bottom - headerRect.top + 8) + 'px';
-        dropdown.style.left = 'auto';
+        dropdown.style.left = leftPos + 'px';
+        dropdown.style.right = 'auto';
       }
+
+      dropdown.style.top = (btnRect.bottom - headerRect.top + 8) + 'px';
 
       dropdown.classList.remove('dropdown-hidden');
       dropdown.classList.add('dropdown-visible');

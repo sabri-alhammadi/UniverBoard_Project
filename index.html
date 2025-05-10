@@ -10,17 +10,115 @@
     body {
       font-family: 'Cairo', sans-serif;
     }
+    /* Dropdown animation */
+    .dropdown {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform-origin: top center;
+    }
+    .dropdown-hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-10px) scale(0.95);
+    }
+    .dropdown-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(6px) scale(1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(0,0,0,0.1);
+      backdrop-filter: saturate(180%) blur(10px);
+      background-color: rgba(255 255 255 / 0.95);
+      color: #1f2937;
+    }
+    .dark .dropdown-visible {
+      background-color: rgba(31 41 55 / 0.95);
+      color: #d1d5db;
+      border-color: rgba(255 255 255 / 0.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+    /* Arrow under button */
+    .dropdown-arrow {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background: inherit;
+      transform: rotate(45deg);
+      top: -7px;
+      right: 16px;
+      border-left: 1px solid rgba(0,0,0,0.1);
+      border-top: 1px solid rgba(0,0,0,0.1);
+      backdrop-filter: inherit;
+    }
+    .dark .dropdown-arrow {
+      border-left: 1px solid rgba(255 255 255 / 0.1);
+      border-top: 1px solid rgba(255 255 255 / 0.1);
+    }
   </style>
 </head>
 <body class="bg-gray-50 dark:bg-[#121212] text-gray-900 dark:text-gray-100 min-h-screen flex flex-col relative">
   <header class="bg-gradient-to-r from-[#003049] to-[#005f73] shadow-md z-30">
     <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
       <h1 class="text-3xl font-extrabold tracking-tight">UniverBoard</h1>
-      <nav id="navbar" class="hidden md:flex space-x-8 rtl:space-x-reverse">
-        <a class="text-gray-300 hover:text-white transition font-semibold" href="#">الرئيسية</a>
-        <a class="text-gray-300 hover:text-white transition font-semibold" href="#">عن النظام</a>
-        <a class="text-gray-300 hover:text-white transition font-semibold" href="#">الدعم</a>
-        <a class="text-gray-300 hover:text-white transition font-semibold" href="#">تواصل معنا</a>
+      <nav id="navbar" class="hidden md:flex space-x-8 rtl:space-x-reverse relative">
+        <div class="relative">
+          <button aria-expanded="false" aria-controls="dropdownMain" id="btnMain" class="text-gray-300 hover:text-white transition font-semibold focus:outline-none flex items-center space-x-1 rtl:space-x-reverse select-none">
+            <span>الرئيسية</span>
+            <i class="fas fa-chevron-down text-sm transition-transform duration-300"></i>
+          </button>
+          <div id="dropdownMain" class="dropdown dropdown-hidden absolute right-0 mt-1 w-72 rounded-lg p-5 z-50">
+            <div class="dropdown-arrow"></div>
+            <ul class="space-y-3 list-disc list-inside text-sm leading-relaxed">
+              <li>بوابة النظام الموحد للوصول السريع إلى خدمات الجامعة.</li>
+              <li>لوحات تحكم مخصصة للطلاب، الأساتذة، الكليات، والإدارة العليا.</li>
+              <li>تسجيل الدخول وإنشاء حساب جديد بسهولة وأمان.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="relative">
+          <button aria-expanded="false" aria-controls="dropdownAbout" id="btnAbout" class="text-gray-300 hover:text-white transition font-semibold focus:outline-none flex items-center space-x-1 rtl:space-x-reverse select-none">
+            <span>عن النظام</span>
+            <i class="fas fa-chevron-down text-sm transition-transform duration-300"></i>
+          </button>
+          <div id="dropdownAbout" class="dropdown dropdown-hidden absolute right-0 mt-1 w-80 rounded-lg p-5 z-50">
+            <div class="dropdown-arrow"></div>
+            <ul class="space-y-3 list-disc list-inside text-sm leading-relaxed">
+              <li>نظام موحد يربط بين جميع الجهات الأكاديمية والإدارية في الجامعة.</li>
+              <li>يهدف إلى تسهيل الوصول إلى المعلومات والخدمات الأكاديمية.</li>
+              <li>يدعم التفاعل والتواصل بين الطلاب والأساتذة والإدارة.</li>
+              <li>يتم تحديث النظام باستمرار لضمان أفضل تجربة للمستخدمين.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="relative">
+          <button aria-expanded="false" aria-controls="dropdownSupport" id="btnSupport" class="text-gray-300 hover:text-white transition font-semibold focus:outline-none flex items-center space-x-1 rtl:space-x-reverse select-none">
+            <span>الدعم</span>
+            <i class="fas fa-chevron-down text-sm transition-transform duration-300"></i>
+          </button>
+          <div id="dropdownSupport" class="dropdown dropdown-hidden absolute right-0 mt-1 w-80 rounded-lg p-5 z-50">
+            <div class="dropdown-arrow"></div>
+            <ul class="space-y-3 list-disc list-inside text-sm leading-relaxed">
+              <li>فريق دعم فني متاح على مدار الساعة لمساعدتك في حل المشكلات.</li>
+              <li>دروس تعليمية وفيديوهات توضيحية لاستخدام النظام بكفاءة.</li>
+              <li>قاعدة معرفة شاملة تحتوي على الأسئلة الشائعة والإرشادات.</li>
+              <li>تحديثات دورية لضمان استقرار وأمان النظام.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="relative">
+          <button aria-expanded="false" aria-controls="dropdownContact" id="btnContact" class="text-gray-300 hover:text-white transition font-semibold focus:outline-none flex items-center space-x-1 rtl:space-x-reverse select-none">
+            <span>تواصل معنا</span>
+            <i class="fas fa-chevron-down text-sm transition-transform duration-300"></i>
+          </button>
+          <div id="dropdownContact" class="dropdown dropdown-hidden absolute right-0 mt-1 w-80 rounded-lg p-5 z-50">
+            <div class="dropdown-arrow"></div>
+            <ul class="space-y-3 list-disc list-inside text-sm leading-relaxed">
+              <li>البريد الإلكتروني: support@univerboard.edu.sa</li>
+              <li>رقم الهاتف: 9200 123 456</li>
+              <li>العنوان: شارع الجامعة، الرياض، المملكة العربية السعودية</li>
+              <li>تابعنا على وسائل التواصل الاجتماعي للحصول على آخر الأخبار والتحديثات.</li>
+            </ul>
+          </div>
+        </div>
       </nav>
       <div class="flex items-center space-x-4 rtl:space-x-reverse">
         <button aria-label="تبديل الوضع الليلي" class="text-gray-300 hover:text-white focus:outline-none text-xl" id="darkModeToggle">
@@ -33,10 +131,53 @@
     </div>
     <!-- Mobile menu -->
     <nav id="mobileMenu" class="md:hidden bg-gradient-to-r from-[#003049] to-[#005f73] shadow-inner max-w-7xl mx-auto px-6 py-4 space-y-4 hidden">
-      <a class="block text-gray-300 hover:text-white transition font-semibold text-lg" href="#">الرئيسية</a>
-      <a class="block text-gray-300 hover:text-white transition font-semibold text-lg" href="#">عن النظام</a>
-      <a class="block text-gray-300 hover:text-white transition font-semibold text-lg" href="#">الدعم</a>
-      <a class="block text-gray-300 hover:text-white transition font-semibold text-lg" href="#">تواصل معنا</a>
+      <details class="group rounded-lg">
+        <summary class="cursor-pointer text-gray-300 hover:text-white transition font-semibold text-lg flex items-center justify-between">
+          الرئيسية
+          <i class="fas fa-chevron-down text-sm transition-transform group-open:rotate-180"></i>
+        </summary>
+        <ul class="mt-3 space-y-2 pr-4 text-gray-200">
+          <li>بوابة النظام الموحد للوصول السريع إلى خدمات الجامعة.</li>
+          <li>لوحات تحكم مخصصة للطلاب، الأساتذة، الكليات، والإدارة العليا.</li>
+          <li>تسجيل الدخول وإنشاء حساب جديد بسهولة وأمان.</li>
+        </ul>
+      </details>
+      <details class="group rounded-lg">
+        <summary class="cursor-pointer text-gray-300 hover:text-white transition font-semibold text-lg flex items-center justify-between">
+          عن النظام
+          <i class="fas fa-chevron-down text-sm transition-transform group-open:rotate-180"></i>
+        </summary>
+        <ul class="mt-3 space-y-2 pr-4 text-gray-200">
+          <li>نظام موحد يربط بين جميع الجهات الأكاديمية والإدارية في الجامعة.</li>
+          <li>يهدف إلى تسهيل الوصول إلى المعلومات والخدمات الأكاديمية.</li>
+          <li>يدعم التفاعل والتواصل بين الطلاب والأساتذة والإدارة.</li>
+          <li>يتم تحديث النظام باستمرار لضمان أفضل تجربة للمستخدمين.</li>
+        </ul>
+      </details>
+      <details class="group rounded-lg">
+        <summary class="cursor-pointer text-gray-300 hover:text-white transition font-semibold text-lg flex items-center justify-between">
+          الدعم
+          <i class="fas fa-chevron-down text-sm transition-transform group-open:rotate-180"></i>
+        </summary>
+        <ul class="mt-3 space-y-2 pr-4 text-gray-200">
+          <li>فريق دعم فني متاح على مدار الساعة لمساعدتك في حل المشكلات.</li>
+          <li>دروس تعليمية وفيديوهات توضيحية لاستخدام النظام بكفاءة.</li>
+          <li>قاعدة معرفة شاملة تحتوي على الأسئلة الشائعة والإرشادات.</li>
+          <li>تحديثات دورية لضمان استقرار وأمان النظام.</li>
+        </ul>
+      </details>
+      <details class="group rounded-lg">
+        <summary class="cursor-pointer text-gray-300 hover:text-white transition font-semibold text-lg flex items-center justify-between">
+          تواصل معنا
+          <i class="fas fa-chevron-down text-sm transition-transform group-open:rotate-180"></i>
+        </summary>
+        <ul class="mt-3 space-y-2 pr-4 text-gray-200">
+          <li>البريد الإلكتروني: support@univerboard.edu.sa</li>
+          <li>رقم الهاتف: 9200 123 456</li>
+          <li>العنوان: شارع الجامعة، الرياض، المملكة العربية السعودية</li>
+          <li>تابعنا على وسائل التواصل الاجتماعي للحصول على آخر الأخبار والتحديثات.</li>
+        </ul>
+      </details>
     </nav>
   </header>
   <main class="flex-grow max-w-6xl mx-auto px-6 py-12 relative z-10">
@@ -282,6 +423,68 @@
         menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
       }
     });
+
+    // Desktop dropdown toggles with smooth fade & slide and arrow, plus rotate icon
+    const navItems = [
+      { btn: document.getElementById('btnMain'), dropdown: document.getElementById('dropdownMain') },
+      { btn: document.getElementById('btnAbout'), dropdown: document.getElementById('dropdownAbout') },
+      { btn: document.getElementById('btnSupport'), dropdown: document.getElementById('dropdownSupport') },
+      { btn: document.getElementById('btnContact'), dropdown: document.getElementById('dropdownContact') },
+    ];
+
+    function closeAllDropdowns() {
+      navItems.forEach(({ btn, dropdown }) => {
+        btn.setAttribute('aria-expanded', 'false');
+        dropdown.classList.add('dropdown-hidden');
+        dropdown.classList.remove('dropdown-visible');
+        const icon = btn.querySelector('i.fas.fa-chevron-down');
+        if (icon) icon.style.transform = 'rotate(0deg)';
+      });
+    }
+
+    function openDropdown(btn, dropdown) {
+      // Position dropdown right aligned with button
+      const btnRect = btn.getBoundingClientRect();
+      const headerRect = btn.closest('header').getBoundingClientRect();
+      const rightOffset = headerRect.right - btnRect.right;
+      dropdown.style.right = rightOffset + 'px';
+      const topOffset = btnRect.bottom - headerRect.top + 6;
+      dropdown.style.top = topOffset + 'px';
+
+      dropdown.classList.remove('dropdown-hidden');
+      dropdown.classList.add('dropdown-visible');
+      btn.setAttribute('aria-expanded', 'true');
+      const icon = btn.querySelector('i.fas.fa-chevron-down');
+      if (icon) icon.style.transform = 'rotate(180deg)';
+    }
+
+    navItems.forEach(({ btn, dropdown }) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        closeAllDropdowns();
+        if (!isOpen) {
+          openDropdown(btn, dropdown);
+        }
+      });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', () => {
+      closeAllDropdowns();
+    });
+
+    // Close dropdowns on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeAllDropdowns();
+      }
+    });
+
+    // Close dropdowns on window resize
+    window.addEventListener('resize', () => {
+      closeAllDropdowns();
+    });
   </script>
 </body>
-</html>
+  </html>
